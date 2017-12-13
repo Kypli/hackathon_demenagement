@@ -1,0 +1,23 @@
+/* Pour réperer Bootstrap */
+[class*="col-"], footer {
+    background-color: lightgreen;
+    border: 1px solid black;
+}
+
+/* COL 1 */
+
+.selector {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+}
+
+.object {
+    height: 200px;
+    width: 600px;
+    border: 2px orange ridge;
+}
+
+
+/* COL 2 */
+
