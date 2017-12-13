@@ -3,58 +3,66 @@
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link href="{{ asset('favicon.ico') }}" rel="icon" type="image/x-icon" />
+    <link href="{{ asset("css/global.css") }}" rel="stylesheet">
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-    <div class="container">
-        <table class="table">
-            <tr class="white">
-                <td>
-                    <img src="logo" alt ="emoovz">
-                </td>
-                <td>
-                    <span class="titleNav">TRAJET</span>
-                    <br/>
-                    Orléans
-                    <br/>
-                    Paris
-                </td>
-                <td>
-                    <span class="titleNav">OFFRE</span>
-                    <br/>
-                    DÉMÉNAGEMENT
-                    <br/>
-                    CLASSIQUE
-                </td>
-                <td>
-                    <span class="titleNav">INVENTAIRE</span>
-                    <br/>
-                    <br/>
-                    Inventaire libre
-                </td>
-                <td>
-                    <span class="titleNav black">DATE</span>
-                </td>
-                <td>
-                    <span class="titleNav black">OPTIONS</span>
-                </td>
-                <td>
-                    <span class="titleNav">TOTAL</span> <span class="titleSmall">(à partir de)</span>
-                    <br/>
-                    <span class="price">XXX,XX €</span>
-                    <br/>
-                    Paris
-                </td>
-            </tr>
-        </table>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table">
+                    <tr class="white">
+                        <td>
+                            <img src="logo" alt ="emoovz">
+                        </td>
+                        <td>
+                            <span class="titleNav">TRAJET</span>
+                            <br/>
+                            Orléans
+                            <br/>
+                            Paris
+                        </td>
+                        <td>
+                            <span class="titleNav">OFFRE</span>
+                            <br/>
+                            DÉMÉNAGEMENT
+                            <br/>
+                            CLASSIQUE
+                        </td>
+                        <td>
+                            <span class="titleNav">INVENTAIRE</span>
+                            <br/>
+                            <br/>
+                            Inventaire libre
+                        </td>
+                        <td>
+                            <span class="titleNav black">DATE</span>
+                        </td>
+                        <td>
+                            <span class="titleNav black">OPTIONS</span>
+                        </td>
+                        <td>
+                            <span class="titleNav">TOTAL</span> <span class="titleSmall">(à partir de)</span>
+                            <br/>
+                            <span class="price">XXX,XX €</span>
+                            <br/>
+                            Paris
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
         {% block body %}{% endblock %}
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{ asset("js/main.js") }}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     {% block javascripts %}{% endblock %}
-    </body>
+</body>
 </html>
