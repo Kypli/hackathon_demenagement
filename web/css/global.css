@@ -1,10 +1,19 @@
 /* Pour réperer Bootstrap */
-[class*="col-"], footer {
-    background-color: lightgreen;
-    border: 1px solid black;
-}
+/*[class*="col-"], footer {*/
+    /*background-color: lightgreen;*/
+    /*border: 1px solid black;*/
+/*}*/
 
 /* COMMUN */
+body
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-image: url('../image/cuisineFlou.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 .white{
     color: white;
 }
@@ -12,6 +21,45 @@
 .black{
     color: black;
 }
+
+/* TAG */
+.tag{
+    padding: 5px;
+    background-color: green;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tag2{
+    height: 70px;
+    padding: 5px;
+    background-color: green;
+    text-align: center;
+}
+
+.tag3{
+    margin-top:20px;
+    background-color: green;
+    text-align: center;
+}
+
+.tag:hover{
+    background-color: yellow;
+}
+
+.tag2:hover{
+    background-color: yellow;
+}
+
+.tag3:hover{
+    background-color: yellow;
+}
+
+
+.number{
+    width: 50px;
+}
+
 
 /* COL 1 */
 .selector select {
@@ -21,15 +69,31 @@
 }
 
 .object {
-    height: 600px;
+    height: 100%;
+    min-height: 500px;
     width: 600px;
     margin-left: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border: 2px orange ridge;
 }
 
+<<<<<<< HEAD
 .navbar-default {
     background-color: #e54380;
 }
+=======
+>>>>>>> 3894d44d83b7beee4161820268810f8e1a485b72
 /* COL 2 */
+.inventory {
+    height: 100%;
+    min-height: 500px;
+    width: 600px;
+    margin-top: 80px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    border: 2px orange ridge;
+}
 
+.buttonModal{
+    margin-right: 20px;
+}
