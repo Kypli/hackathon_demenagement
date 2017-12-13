@@ -17,9 +17,13 @@ class HomeController extends Controller
         // Display form
         $form = $this->createForm(EstateType::class);
 
+        // Display Tag
+        $tags = range(0, );
+
         return $this->render('default/index.html.twig',
             array(
                 'form' => $form->createView(),
+                'tags' => $tags,
             )
         );
     }

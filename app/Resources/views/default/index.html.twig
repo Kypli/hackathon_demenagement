@@ -6,15 +6,19 @@
         {# COLONNE GAUCHE #}
         <div class="col-xs-6 selector">
             {{ form_start(form) }}{{ form_end(form) }}
-            <div class="object">
-                En cours
+            <div class="row">
+                <div id="object" class="object">
+                    {% for tag in tags %}
+                        <div class="col-xs-2 tag" onclick='copierColler("{{ tag }}")'>{{ tag }}</div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
         {# COLONNE DROITE #}
         <div class="col-xs-6 selector">
 
-            <div class="inventory">
+            <div id="inventory" class="inventory">
                 En cours
             </div>
             <div>

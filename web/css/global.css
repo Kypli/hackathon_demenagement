@@ -1,6 +1,6 @@
 /* Pour réperer Bootstrap */
 [class*="col-"], footer {
-    /*background-color: lightgreen;*/
+    background-color: lightgreen;
     border: 1px solid black;
 }
 
@@ -21,6 +21,19 @@ body
 .black{
     color: black;
 }
+
+.tag{
+    padding: 5px;
+    background-color: green;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tag:hover{
+    background-color: yellow;
+}
+
+
 
 /* COL 1 */
 .selector select {
