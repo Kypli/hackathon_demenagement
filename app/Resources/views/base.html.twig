@@ -2,22 +2,49 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}Welcome!{% endblock %}</title>
     <link href="{{ asset('favicon.ico') }}" rel="icon" type="image/x-icon" />
     <link href="{{ asset("css/global.css") }}" rel="stylesheet">
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    {% block stylesheets %}{% endblock %}
 </head>
 <body>
-    <div class="container-fluid">
+
+<img src="{{ asset("image/navbar-emoovz.png") }}">
+<!--<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="image/logo_emoovz_final_blanc" alt="Logo emoovz"></a>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="text"><a href="#">Trajet</a></li>
+        <li class="text"><a href="#">Offre</a></li>
+        <li class="text"><a href="#">Inventaire</a></li>
+        <li class="text"><a href="#">Date</a></li>
+        <li class="text"><a href="#">Option</a></li>
+        <li class="text"><a href="#">Total</a></li>
+      </ul>
+    </div><
+  </div>
+</nav> -->
+
+    <!--<div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
                 <table class="table">
                     <tr class="white">
                         <td>
-                            <img src="logo" alt ="emoovz">
+                            <img src="web/image/logo_emoovz_final_blanc.png" alt ="emoovz">
                         </td>
                         <td>
                             <span class="titleNav">TRAJET</span>
@@ -56,11 +83,9 @@
                 </table>
             </div>
         </div>
-
-        {% block body %}{% endblock %}
+-->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    {% block javascripts %}{% endblock %}
 </body>
 </html>
