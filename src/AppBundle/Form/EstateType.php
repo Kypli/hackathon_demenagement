@@ -15,6 +15,7 @@ class EstateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('estate', ChoiceType::class, array(
+            'label' => 'Mon déménagement se fait via: ',
             'choices' => array(
                 'Choisir une option' => '',
                 'Appartement' => array(

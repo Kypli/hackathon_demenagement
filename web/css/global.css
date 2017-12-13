@@ -4,17 +4,27 @@
     border: 1px solid black;
 }
 
-/* COL 1 */
+/* COMMUN */
+.white{
+    color: white;
+}
 
-.selector {
+.black{
+    color: black;
+}
+
+/* COL 1 */
+.selector select {
     margin-top: 20px;
     margin-bottom: 30px;
     margin-left: 40px;
 }
 
 .object {
-    height: 200px;
+    height: 600px;
     width: 600px;
+    margin-left: 40px;
+    margin-bottom: 30px;
     border: 2px orange ridge;
 }
 

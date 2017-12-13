@@ -2,7 +2,17 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-xs-6">
+
+        {# COLONNE GAUCHE #}
+        <div class="col-xs-6 selector">
+            {{ form_start(form) }}{{ form_end(form) }}
+            <div class="object">
+                En cours
+            </div>
+        </div>
+
+        {# COLONNE GAUCHE #}
+        <div class="col-xs-6 selector">
             {{ form_start(form) }}{{ form_end(form) }}
             <div class="object">
                 En cours
