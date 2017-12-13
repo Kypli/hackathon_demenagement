@@ -22,6 +22,10 @@ body
     color: black;
 }
 
+.displayNone{
+    display:none
+}
+
 /* TAG */
 .tag{
     padding: 5px;
@@ -55,6 +59,10 @@ body
 
 .tag3:hover{
     background-color: yellow;
+}
+
+.bgGris{
+    background-color: grey;
 }
 
 
