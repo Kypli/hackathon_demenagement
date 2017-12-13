@@ -1,8 +1,8 @@
 /* Pour réperer Bootstrap */
-[class*="col-"], footer {
-    background-color: lightgreen;
-    border: 1px solid black;
-}
+/*[class*="col-"], footer {*/
+    /*background-color: lightgreen;*/
+    /*border: 1px solid black;*/
+/*}*/
 
 /* COMMUN */
 body
@@ -22,6 +22,7 @@ body
     color: black;
 }
 
+/* TAG */
 .tag{
     padding: 5px;
     background-color: green;
@@ -29,10 +30,35 @@ body
     cursor: pointer;
 }
 
+.tag2{
+    height: 70px;
+    padding: 5px;
+    background-color: green;
+    text-align: center;
+}
+
+.tag3{
+    margin-top:20px;
+    background-color: green;
+    text-align: center;
+}
+
 .tag:hover{
     background-color: yellow;
 }
 
+.tag2:hover{
+    background-color: yellow;
+}
+
+.tag3:hover{
+    background-color: yellow;
+}
+
+
+.number{
+    width: 50px;
+}
 
 
 /* COL 1 */

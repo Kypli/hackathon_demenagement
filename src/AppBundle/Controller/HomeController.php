@@ -18,7 +18,7 @@ class HomeController extends Controller
         $form = $this->createForm(EstateType::class);
 
         // Display Tag
-        $tags = range(0, );
+        $tags = range(0, 50);
 
         return $this->render('default/index.html.twig',
             array(
