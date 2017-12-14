@@ -29,9 +29,9 @@ class PieceOfFurniture
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="room", inversedBy="PiecesOfFurniture")
+     * @ORM\ManyToMany(targetEntity="room", cascade={"persist"})
      */
-    private $room;
+    private $rooms;
 
     /**
      * @ORM\ManyToOne(targetEntity="typeFurniture", inversedBy="PiecesOfFurniture")
@@ -117,5 +117,46 @@ class PieceOfFurniture
     public function getTypeFurniture()
     {
         return $this->typeFurniture;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->rooms = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add room
+     *
+     * @param \AppBundle\Entity\room $room
+     *
+     * @return PieceOfFurniture
+     */
+    public function addRoom(\AppBundle\Entity\room $room)
+    {
+        $this->rooms[] = $room;
+
+        return $this;
+    }
+
+    /**
+     * Remove room
+     *
+     * @param \AppBundle\Entity\room $room
+     */
+    public function removeRoom(\AppBundle\Entity\room $room)
+    {
+        $this->rooms->removeElement($room);
+    }
+
+    /**
+     * Get rooms
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRooms()
+    {
+        return $this->rooms;
     }
 }

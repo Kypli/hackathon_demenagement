@@ -29,9 +29,9 @@ class PieceOfFurniture
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="room", inversedBy="PiecesOfFurniture")
+     * @ORM\ManyToMany(targetEntity="room", cascade={"persist"})
      */
-    private $room;
+    private $rooms;
 
     /**
      * @ORM\ManyToOne(targetEntity="typeFurniture", inversedBy="PiecesOfFurniture")
