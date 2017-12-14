@@ -29,10 +29,10 @@ class HomeController extends Controller
         $formSelect = $this->createForm(EstateType::class);
         $objects = $em->getRepository(PieceOfFurniture::class)->findAll();
         $categories = $em->getRepository(TypeFurniture::class)->findAll();
-        $listRooms = $em->getRepository('AppBundle:Room')->findAll();
+        $listRooms = $em->getRepository(Room::class)->findAll();
 
-        $room = new Room();
-        $formCheckBox = $this->createForm(AddRoomType::class, $room);
+        $formCheckBox = $this->createForm(AddRoomType::class);
+        $formCheckBox->handleRequest($request);
 
         // List "tabRooms" (SESSION['tabRooms'])
         if (empty($session->get('tabRooms'))) {
