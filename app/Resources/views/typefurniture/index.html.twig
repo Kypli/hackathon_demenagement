@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Typefurnitures list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeFurniture in typeFurnitures %}
+            <tr>
+                <td><a href="{{ path('typefurniture_show', { 'id': typeFurniture.id }) }}">{{ typeFurniture.id }}</a></td>
+                <td>{{ typeFurniture.name }}</td>
+                <td>{{ typeFurniture.color }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('typefurniture_show', { 'id': typeFurniture.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('typefurniture_edit', { 'id': typeFurniture.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typefurniture_new') }}">Create a new typeFurniture</a>
+        </li>
+    </ul>
+{% endblock %}

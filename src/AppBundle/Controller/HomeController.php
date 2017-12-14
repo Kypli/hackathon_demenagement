@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\PieceOfFurniture;
+use AppBundle\Entity\TypeFurniture;
 use AppBundle\Form\EstateType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,7 +24,9 @@ class HomeController extends Controller
         $form = $this->createForm(EstateType::class);
 
         // Display Tag
-        $tags = range(0, 50);
+        $objects = $em->getRepository(PieceOfFurniture::class)->findAll();
+
+        $categories = $em->getRepository(TypeFurniture::class)->findAll();
 
         // Display Rooms
         $rooms = $em->getRepository('AppBundle:Room')
@@ -48,9 +52,10 @@ class HomeController extends Controller
         return $this->render('default/index.html.twig',
             array(
                 'form' => $form->createView(),
-                'tags' => $tags,
                 'onglets' => $session->get('onglets'),
                 'rooms' => $rooms,
+                'objects' => $objects,
+                'categories' => $categories
             )
         );
     }

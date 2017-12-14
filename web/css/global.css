@@ -28,7 +28,7 @@ body
 }
 
 /* TAG */
-.tag{
+.object{
     padding: 5px;
     border-radius: 6px;
     background-color: green;
@@ -50,7 +50,7 @@ body
     text-align: center;
 }
 
-.tag:hover{
+.object:hover{
     background-color: yellow;
 }
 
@@ -72,13 +72,21 @@ body
 
 
 /* COL 1 */
+.colonneG {
+    display: flex;
+    flex-direction: column;
+}
+
 .selector {
     margin-top: 20px;
     margin-bottom: 30px;
     margin-left: 20px;
 }
 
-.objects {
+#categories h3 { display: inline; }
+#categories a { text-decoration: none; }
+
+.object {
     height: 100%;
     min-height: 500px;
     width: 600px;
