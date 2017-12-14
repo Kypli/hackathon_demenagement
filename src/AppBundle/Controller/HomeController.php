@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Room;
 use AppBundle\Entity\PieceOfFurniture;
 use AppBundle\Entity\TypeFurniture;
+use AppBundle\Form\AddRoomType;
 use AppBundle\Form\EstateType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,6 +16,9 @@ class HomeController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @param Request $request
+     * @param SessionInterface $session
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request, SessionInterface $session)
     {
@@ -25,6 +30,9 @@ class HomeController extends Controller
         $objects = $em->getRepository(PieceOfFurniture::class)->findAll();
         $categories = $em->getRepository(TypeFurniture::class)->findAll();
         $listRooms = $em->getRepository('AppBundle:Room')->findAll();
+
+        $room = new Room();
+        $formCheckBox = $this->createForm(AddRoomType::class, $room);
 
         // List "tabRooms" (SESSION['tabRooms'])
         if (empty($session->get('tabRooms'))) {
@@ -65,6 +73,7 @@ class HomeController extends Controller
         return $this->render('default/index.html.twig',
             array(
                 'formSelect' => $formSelect->createView(),
+                'formCheckbox' => $formCheckBox->createView(),
                 'rooms' => $listRooms,
                 'onglets' => $session->get('tabRooms'),
                 'userTags' => $session->get('userTag'),
