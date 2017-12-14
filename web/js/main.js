@@ -31,8 +31,22 @@ function copierColler(objet) {
     }
 }
 
-function afficherInventaire() {
-    if (){
+$( document ).ready(function() {
+    $("select").on('click', function (e) {
 
-    }
-}
+
+        select = document.getElementsByClassName("selector");
+        choice = select.selectedIndex  // Récupération de l'index du <option> choisi
+        valeur_cherchee = select.options[choice].value;
+        alert(valeur_cherchee);
+
+        // if (valeur_cherchee == '3'){
+        //     document.getElementsByClassName('displayNone').style.display = 'block';
+        //     document.getElementById('tag_5').innerHTML = 'coucou'
+        // }
+
+    })
+});
+
+
+
