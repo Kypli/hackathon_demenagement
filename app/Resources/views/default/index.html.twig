@@ -4,9 +4,9 @@
     <div class="row">
 
         {# COLONNE GAUCHE #}
-        <div class="col-xs-6 selector">
+        <div class="col-xs-6">
             {{ form_start(form) }}{{ form_end(form) }}
-            <div class="row displayNone">
+            <div id="colonneG" class="row displayNone">
                 <div id="object" class="object">
                     {% for tag in tags %}
                         <div id="tag_{{ tag }}" class="col-xs-2 tag" onclick='copierColler("{{ tag }}")'>{{ tag }}</div>
@@ -16,7 +16,7 @@
         </div>
 
         {# COLONNE DROITE #}
-        <div class="col-xs-6 selector">
+        <div id="colonneD" class="col-xs-6 displayNone">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Cuisine</a></li>
                 <li><a data-toggle="modal" href="#plus" data-target="#plus">+</a></li>
@@ -34,7 +34,6 @@
                                 <h4 class="modal-title">Choisissez votre pièce à inventorier</h4>
                             </div>
                             <div class="modal-body">
-                                {#<p>Mon inventaire est vide pour le moment</p>#}
                                 <div class="row available-rooms-container">
                                     <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="497" data-room-can-delete="true">
                                         <div class="row">

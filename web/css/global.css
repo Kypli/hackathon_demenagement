@@ -24,7 +24,7 @@ body
 }
 
 .displayNone{
-    /*display:none*/
+    visibility:hidden
 }
 
 /* TAG */
@@ -73,10 +73,10 @@ body
 
 
 /* COL 1 */
-.selector select {
+.selector {
     margin-top: 20px;
     margin-bottom: 30px;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 
 .object {
