@@ -9,9 +9,10 @@ body
 {
     padding-top: 10px;
     padding-bottom: 10px;
+    background: fixed;
     background-image: url('../image/cuisineFlou.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .white{
