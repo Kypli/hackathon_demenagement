@@ -23,17 +23,19 @@ body
     width: 100%;
 }
 
-button.btn.btn-primary {
+button.btn {
     margin: 5px;
     background: #e54380;
     border-color: white;
     width: auto;
     height: auto;
+    color:white;
 }
 
 .selector {
-    border-radius: 5px;
-    background: white;
+    margin-bottom: 30px;
+    height: 40px;
+    margin-top: 10px;
 }
 
 .white{
@@ -51,17 +53,20 @@ button.btn.btn-primary {
 /* TAG */
 .object{
     padding: 5px;
-    border-radius: 6px;
-    background-color: green;
     text-align: center;
     cursor: pointer;
+    margin: 5px;
+    background: #4c448f;
+    border-color: white;
+    width: auto;
+    height: auto;
+    color:white;
 }
 
 .tag2{
     height: 70px;
     padding: 5px;
-    border-radius: 10px;
-    background-color: green;
+    background-color: #4c448f;
     text-align: center;
 }
 
@@ -71,11 +76,11 @@ button.btn.btn-primary {
 }
 
 .object:hover{
-    background-color: yellow;
+    background-color: #e54380;
 }
 
 .tag2:hover{
-    background-color: yellow;
+    background-color: #e54380;
 }
 
 .bgGris{
@@ -155,6 +160,7 @@ ul.nav.nav-tabs {
 .addRoomPlus{
     background-color: #BBB0BF;
     margin-left: -40px;
+    margin-bottom: 1px;
 }
 
 div.row.columns {
@@ -166,4 +172,5 @@ div.row.columns {
 
 .pull-right {
     margin-top: 20px;
+    background-color: #4c448f;
 }
