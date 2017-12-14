@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * typeFurniture
+ * TypeFurniture
  *
  * @ORM\Table(name="type_furniture")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\typeFurnitureRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TypeFurnitureRepository")
  */
-class typeFurniture
+class TypeFurniture
 {
     /**
      * @var int
@@ -29,7 +29,7 @@ class typeFurniture
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="PieceOfFurniture", mappedBy="typeFurniture")
+     * @ORM\OneToMany(targetEntity="PieceOfFurniture", mappedBy="TypeFurniture")
      */
     private $PiecesOfFurniture;
 
@@ -48,7 +48,7 @@ class typeFurniture
      *
      * @param string $name
      *
-     * @return typeFurniture
+     * @return TypeFurniture
      */
     public function setName($name)
     {
@@ -79,7 +79,7 @@ class typeFurniture
      *
      * @param \AppBundle\Entity\PieceOfFurniture $piecesOfFurniture
      *
-     * @return typeFurniture
+     * @return TypeFurniture
      */
     public function addPiecesOfFurniture(\AppBundle\Entity\PieceOfFurniture $piecesOfFurniture)
     {
