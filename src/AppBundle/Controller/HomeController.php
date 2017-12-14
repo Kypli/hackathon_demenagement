@@ -41,8 +41,8 @@ class HomeController extends Controller
         }
 
         // Add Room
-        if (!empty($request->query->get('room'))) {
-            $room[] = $request->query->get('room');
+        if (!empty($request->query->get('addRoom'))) {
+            $room[] = $request->query->get('addRoom');
             $tabRooms = $session->get('tabRooms');
 
             // S'il n'existe pas déja

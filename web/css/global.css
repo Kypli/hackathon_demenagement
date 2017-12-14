@@ -47,7 +47,7 @@ button.btn {
 }
 
 .displayNone{
-    visibility:hidden
+    /*visibility:hidden*/
 }
 
 /* TAG */
@@ -66,13 +66,20 @@ button.btn {
 .tag2{
     height: 70px;
     padding: 5px;
-    background-color: #4c448f;
+    background-color: #9A6ED2;
     text-align: center;
+    border-radius: 6px;
+}
+
+.tag2 span {
+    color:white;
 }
 
 .tag3{
     margin-top:10px;
+    margin-left:20px;
     text-align: center;
+    color:blue;
 }
 
 .object:hover{

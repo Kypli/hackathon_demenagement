@@ -10,7 +10,7 @@ function copierColler(IdObjet, name) {
         maDiv = document.createElement("div");
         maDiv.id = 'tag2_' + IdObjet;
         maDiv.className = 'col-xs-2 tag2';
-        maDiv.innerHTML = name;
+        maDiv.innerHTML = `<span>${name}</span><br/>`;
         document.getElementById('inventory').appendChild(maDiv);
 
         // Tag 3 (col D)
@@ -28,13 +28,34 @@ function copierColler(IdObjet, name) {
                // Réactiver Tag 1 (vert)
                document.getElementById(IdObjet).className = 'col-xs-2 object';
            };
+
+            textRecap = '';
+            for (var iter = 1; iter <= 5; iter++) {
+
+                if (document.getElementById('tag2_object_' + iter)) {
+                    text = $('#tag2_object_' + iter +' >span').text();
+                    number = document.getElementById('object_' + iter + 'Number').value;
+                    textRecap = textRecap + '<br/>(' + number + ') ' + text;
+                }
+            }
+
+            document.getElementById('textRecap').innerHTML = textRecap;
+
         };
         document.getElementById('tag2_' + IdObjet).append(maDiv);
 
-        //Ajouter dans le récapitulatif
+        // Add Recap
+        textRecap = '';
+        for (var iter = 1; iter <= 5; iter++) {
 
-        textRecap = document.getElementById('textRecap').innerHTML;
-        alert(textRecap);
+            if (document.getElementById('tag2_object_' + iter)) {
+                text = $('#tag2_object_' + iter +' >span').text();
+                number = document.getElementById('object_' + iter + 'Number').value;
+                textRecap = textRecap + '<br/>(' + number + ') ' + text;
+            }
+        }
+
+        document.getElementById('textRecap').innerHTML = textRecap;
     }
 }
 
