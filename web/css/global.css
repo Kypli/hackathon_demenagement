@@ -23,6 +23,10 @@ body
     color: black;
 }
 
+.displayNone{
+    visibility:hidden
+}
+
 /* TAG */
 .tag{
     padding: 5px;
@@ -58,6 +62,10 @@ body
     background-color: yellow;
 }
 
+.bgGris{
+    background-color: grey;
+}
+
 
 .number{
     width: 50px;
@@ -65,10 +73,10 @@ body
 
 
 /* COL 1 */
-.selector select {
+.selector {
     margin-top: 20px;
     margin-bottom: 30px;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 
 .object {
