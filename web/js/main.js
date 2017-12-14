@@ -1,3 +1,4 @@
+// Déplacer les tag
 function copierColler(objet) {
 
     if (!document.getElementById(objet)) {
@@ -32,6 +33,12 @@ function copierColler(objet) {
     }
 }
 
+// Rajouter une salle
+function addRoom(objet) {
+    document.forms[objet].submit();
+}
+
+// Afficher le site si Inventaire libre
 $( document ).ready(function() {
     $("select").on('click', function (e) {
 
@@ -39,15 +46,12 @@ $( document ).ready(function() {
         var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
 
         if (valeurselectionnee == '8'){
-            document.getElementById('colonneG').style.visibility="visible";
+            document.getElementById('objects').style.visibility="visible";
             document.getElementById('colonneD').style.visibility="visible";
         } else {
-            document.getElementById('colonneG').style.visibility="hidden";
+            document.getElementById('objects').style.visibility="hidden";
             document.getElementById('colonneD').style.visibility="hidden";
         }
 
     })
 });
-
-
-
