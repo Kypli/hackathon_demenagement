@@ -90,12 +90,21 @@ body
     height: 100%;
     min-height: 500px;
     width: 600px;
-    margin-top: 80px;
+    margin-top: 0;
     margin-left: 40px;
     margin-bottom: 20px;
     border: 2px orange ridge;
 }
 
+.right {
+    margin-left: -40px;
+}
+
+
+ul.nav.nav-tabs {
+    margin-top: 36px;
+    border-bottom: none;
+}
 .buttonModal{
     margin-right: 20px;
 }
