@@ -45,7 +45,7 @@
                 <h2>Objets</h2>
                 <div id="objects" class="row">
                     {% for object in objects %}
-                        <div id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("object_{{ object.id }}", "{{ object.name|capitalize }}")'>{{ object.name|capitalize }}</div>
+                        <button id="object_{{ object.id }}" class="col-xs-2 object btn btn-primary" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</button>
                     {% endfor %}
                 </div>
             </div>

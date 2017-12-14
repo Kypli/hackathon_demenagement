@@ -22,6 +22,7 @@ body
 .navimg, .footerimg {
     width: 100%;
 }
+    
 
 button.btn {
     margin: 5px;
@@ -57,7 +58,6 @@ button.btn {
     cursor: pointer;
     margin: 5px;
     background: #4c448f;
-    border-color: white;
     width: auto;
     height: auto;
     color:white;
@@ -118,14 +118,6 @@ div#colonneG.col-xs-6.colonneGauche {
 #categories h3 { display: inline; }
 #categories a { text-decoration: none; }
 
-.object {
-    height: 100%;
-    min-height: 500px;
-    width: 600px;
-    margin-left: 40px;
-    margin-bottom: 20px;
-    border: 2px orange ridge;
-}
 
 .navbar-default {
     background-color: #e54380;
