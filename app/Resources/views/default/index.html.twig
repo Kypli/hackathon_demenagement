@@ -1,15 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+    {# COLONNE G & D #}
     <div class="row">
 
         {# COLONNE GAUCHE #}
         <div id="colonneG" class="col-xs-6 ">
+
+            {# FORM SELECT #}
             <div class="row">
                 <h2>Type</h2>
-                {{ form_start(form) }}{{ form_end(form) }}
+                {{ form_start(formSelect) }}{{ form_end(formSelect) }}
             </div>
-            <div class="row">
+
+            {# CATEGORIES #}
+            <div id="listCategories" class="row displayNone">
                 <h2>Catégories</h2>
                 <div id="categories">
                     {% for category in categories %}
@@ -19,32 +25,38 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="row">
+
+            {# OBJECTS #}
+            <div id="listObject" class="row displayNone">
                 <h2>Objets</h2>
-                <div id="objects" class="row displayNone">
+                <div id="objects" class="row">
                     {% for object in objects %}
-                        <div id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("{{ object.id }}")'>{{ object.name }}</div>
+                        <div id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</div>
                     {% endfor %}
                 </div>
             </div>
+
         </div>
 
         {# COLONNE DROITE #}
         <div id="colonneD" class="col-xs-6 displayNone">
 
             {# ONGLET #}
-
             <ul class="nav nav-tabs">
+
+                {# ROOMS #}
                 {% for onglet in onglets %}
                     <li class="active"><a data-toggle="tab" href="#home">{{ onglet|capitalize }}</a></li>
                 {% endfor %}
-                <li><a data-toggle="modal" href="#plus" data-target="#plus">+</a></li>
 
-                <!-- Modal -->
+                {# + #}
+                <li><a data-toggle="modal" class="addRoomPlus" href="#plus" data-target="#plus">+</a></li>
+
+                {# ONGLET MODAL #}
                 <div id="plus" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
-                        <!-- Modal content-->
+                        {# ONGLET MODAL CONTENT #}
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -57,10 +69,9 @@
                                             <div class="row">
                                                 <div class="col-xs-4"></div>
                                                 <div class="col-xs-8">
-                                                    <form id="form{{ room.id }}"method="post" action="">
-                                                        <input type="text" class="displayNone" name="room" value="{{ room.name }}"/>
-                                                        <span class="addRoom" onclick='addRoom("form{{ room.id }}")'>{{ room.name|capitalize }}</span>
-                                                    </form>
+                                                    <a href="{{ path('homepage', {
+                                                        'id':room.id,
+                                                    }) }}">{{ room.name|capitalize }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -79,17 +90,26 @@
             {# CONTENT #}
             <div class="tab-content right">
                 <div id="inventory" class="inventory">
-                    <div id="home" class="tab-content fade"></div>
+                    {% for userTag in userTags %}
+                        <div id="{{ userTag.id }}" class="col-xs-2 tag2">
+                            {{ userTag.name }}
+                            <div id="div2_{{ userTag.id }}">
+                                <input id="' + objet + 'Number" type="number" class="number" value="1">
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        {# BOUTON RECAP #}
+    {# RECAP #}
+    <div id="recapitulatif" class="row displayNone">
+
+        {# BOUTON #}
         <button type="button" class="btn btn-info btn-lg pull-right buttonModal" data-toggle="modal" data-target="#myModal">Récapitulatif</button>
 
-        {# MODAL RECAP #}
+        {# MODAL #}
         <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 

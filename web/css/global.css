@@ -58,8 +58,7 @@ button.btn.btn-primary {
 }
 
 .tag3{
-    margin-top:20px;
-    background-color: green;
+    margin-top:10px;
     text-align: center;
 }
 
@@ -68,10 +67,6 @@ button.btn.btn-primary {
 }
 
 .tag2:hover{
-    background-color: yellow;
-}
-
-.tag3:hover{
     background-color: yellow;
 }
 
@@ -142,4 +137,8 @@ ul.nav.nav-tabs {
 
 .addRoom:hover{
     text-decoration: underline;
+}
+
+.addRoomPlus{
+    background-color: #BBB0BF;
 }

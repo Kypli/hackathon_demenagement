@@ -159,4 +159,18 @@ class PieceOfFurniture
     {
         return $this->rooms;
     }
+
+    /**
+     * Set rooms
+     *
+     * @param \AppBundle\Entity\Room $rooms
+     *
+     * @return PieceOfFurniture
+     */
+    public function setRooms(\AppBundle\Entity\Room $rooms = null)
+    {
+        $this->rooms = $rooms;
+
+        return $this;
+    }
 }

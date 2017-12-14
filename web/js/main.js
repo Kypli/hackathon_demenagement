@@ -1,41 +1,41 @@
 // Déplacer les tag
-function copierColler(objet) {
+function copierColler(IdObjet) {
 
-    if (!document.getElementById(objet)) {
+    if (!document.getElementById('tag2_' + IdObjet)) {
 
         // Désactiver l'objet (gris)
-        document.getElementById('object_' + objet).className = 'col-xs-2 object bgGris';
+        document.getElementById(IdObjet).className = 'col-xs-2 object bgGris';
 
         // Tag 1 (col G)
         maDiv = document.createElement("div");
-        maDiv.id = objet;
+        maDiv.id = 'tag2_' + IdObjet;
         maDiv.className = 'col-xs-2 tag2';
-        maDiv.innerHTML = objet;
+        maDiv.innerHTML = IdObjet;
         document.getElementById('inventory').appendChild(maDiv);
 
         // Tag 3 (col D)
         maDiv = document.createElement("div");
-        maDiv.id = objet + '2';
+        maDiv.id = 'tag3_' + IdObjet;
         maDiv.className = 'col-xs-2 tag3';
-        maDiv.innerHTML = '<input id="' + objet + 'Number" type="number" class="number" value="1">';
+        maDiv.innerHTML = '<input id="' + IdObjet + 'Number" type="number" class="number" value="1">';
         maDiv.onclick = function(){
-           if (document.getElementById(objet + 'Number').value <= 0) {
+           if (document.getElementById(IdObjet + 'Number').value <= 0) {
 
                // Supprimer Tag 2 et 3
                this.remove();
-               document.getElementById(objet).remove();
+               document.getElementById('tag2_' + IdObjet).remove();
 
                // Réactiver Tag 1 (vert)
-               document.getElementById('object_' + objet).className = 'col-xs-2 object';
+               document.getElementById(IdObjet).className = 'col-xs-2 object';
            };
         };
-        document.getElementById(objet).append(maDiv);
+        document.getElementById('tag2_' + IdObjet).append(maDiv);
     }
 }
 
 // Rajouter une salle
-function addRoom(objet) {
-    document.forms[objet].submit();
+function addRoom(formId) {
+    document.getElementById(formId).submit();
 }
 
 // Afficher le site si Inventaire libre
@@ -48,9 +48,15 @@ $( document ).ready(function() {
         if (valeurselectionnee == '8'){
             document.getElementById('objects').style.visibility="visible";
             document.getElementById('colonneD').style.visibility="visible";
+            document.getElementById('recapitulatif').style.visibility="visible";
+            document.getElementById('listObject').style.visibility="visible";
+            document.getElementById('listCategories').style.visibility="visible";
         } else {
             document.getElementById('objects').style.visibility="hidden";
             document.getElementById('colonneD').style.visibility="hidden";
+            document.getElementById('recapitulatif').style.visibility="hidden";
+            document.getElementById('listObject').style.visibility="hidden";
+            document.getElementById('listCategories').style.visibility="hidden";
         }
     });
 
@@ -90,6 +96,27 @@ $( document ).ready(function() {
                     array.splice(index);
                 }
             });
+
+            let url = `/api/furnitures`;
+            let data = {'categories': categoriesSelected.join()};
+
+            jQuery.getJSON(url, data)
+                .done(function(data){
+                    let objectsIds = [];
+
+                    data.forEach(function(value, index, array) {
+                        objectsIds.push(value.id.toString());
+                    });
+
+                    jQuery('#objects > div').each(function(index){
+                        if (jQuery.inArray(jQuery(this).attr('id').substring(7, jQuery(this).attr('id').length), objectsIds) == -1) {
+                            jQuery(this).hide();
+                        } else {
+                            jQuery(this).show();
+                        }
+                    })
+                });
+
             jQuery(this).children().remove('span');
         }
 

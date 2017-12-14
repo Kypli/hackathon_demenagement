@@ -29,12 +29,12 @@ class PieceOfFurniture
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="room", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="PiecesOfFurniture")
      */
     private $rooms;
 
     /**
-     * @ORM\ManyToOne(targetEntity="typeFurniture", inversedBy="PiecesOfFurniture")
+     * @ORM\ManyToOne(targetEntity="TypeFurniture", inversedBy="PiecesOfFurniture")
      */
     private $typeFurniture;
     /**
@@ -98,11 +98,11 @@ class PieceOfFurniture
     /**
      * Set typeFurniture
      *
-     * @param \AppBundle\Entity\typeFurniture $typeFurniture
+     * @param \AppBundle\Entity\TypeFurniture $typeFurniture
      *
      * @return PieceOfFurniture
      */
-    public function setTypeFurniture(\AppBundle\Entity\typeFurniture $typeFurniture = null)
+    public function setTypeFurniture(\AppBundle\Entity\TypeFurniture $typeFurniture = null)
     {
         $this->typeFurniture = $typeFurniture;
 
@@ -112,10 +112,51 @@ class PieceOfFurniture
     /**
      * Get typeFurniture
      *
-     * @return \AppBundle\Entity\typeFurniture
+     * @return \AppBundle\Entity\TypeFurniture
      */
     public function getTypeFurniture()
     {
         return $this->typeFurniture;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->rooms = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add room
+     *
+     * @param \AppBundle\Entity\room $room
+     *
+     * @return PieceOfFurniture
+     */
+    public function addRoom(\AppBundle\Entity\room $room)
+    {
+        $this->rooms[] = $room;
+
+        return $this;
+    }
+
+    /**
+     * Remove room
+     *
+     * @param \AppBundle\Entity\room $room
+     */
+    public function removeRoom(\AppBundle\Entity\room $room)
+    {
+        $this->rooms->removeElement($room);
+    }
+
+    /**
+     * Get rooms
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRooms()
+    {
+        return $this->rooms;
     }
 }
