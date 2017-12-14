@@ -67,6 +67,9 @@ class HomeController extends Controller
         $listTag[] = $tag;
         $session->set('userTag', $listTag);
 
+
+        $session->set('userTag', array());
+
         // Sessions Reset
         if (!empty($_POST['reset'])) {
             $session->set('onglets', array());

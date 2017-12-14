@@ -7,11 +7,15 @@
 
         {# COLONNE GAUCHE #}
         <div id="colonneG" class="col-xs-6 ">
+
+            {# FORM SELECT #}
             <div class="row">
                 <h2>Type</h2>
                 {{ form_start(formSelect) }}{{ form_end(formSelect) }}
             </div>
-            <div class="row">
+
+            {# CATEGORIES #}
+            <div id="listCategories" class="row displayNone">
                 <h2>Catégories</h2>
                 <div id="categories">
                     {% for category in categories %}
@@ -21,14 +25,17 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="row">
+
+            {# OBJECTS #}
+            <div id="listObject" class="row displayNone">
                 <h2>Objets</h2>
-                <div id="objects" class="row displayNone">
+                <div id="objects" class="row">
                     {% for object in objects %}
-                        <div id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("{{ object.id }}")'>{{ object.name }}</div>
+                        <div id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</div>
                     {% endfor %}
                 </div>
             </div>
+
         </div>
 
         {# COLONNE DROITE #}
@@ -63,7 +70,7 @@
                                                 <div class="col-xs-4"></div>
                                                 <div class="col-xs-8">
                                                     <a href="{{ path('homepage', {
-                                                        'room':room.name,
+                                                        'id':room.id,
                                                     }) }}">{{ room.name|capitalize }}</a>
                                                 </div>
                                             </div>

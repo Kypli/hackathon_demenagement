@@ -1,35 +1,35 @@
 // Déplacer les tag
-function copierColler(objet) {
+function copierColler(IdObjet) {
 
-    if (!document.getElementById(objet)) {
+    if (!document.getElementById('tag2_' + IdObjet)) {
 
         // Désactiver l'objet (gris)
-        document.getElementById('object_' + objet).className = 'col-xs-2 object bgGris';
+        document.getElementById(IdObjet).className = 'col-xs-2 object bgGris';
 
         // Tag 1 (col G)
         maDiv = document.createElement("div");
-        maDiv.id = objet;
+        maDiv.id = 'tag2_' + IdObjet;
         maDiv.className = 'col-xs-2 tag2';
-        maDiv.innerHTML = objet;
+        maDiv.innerHTML = IdObjet;
         document.getElementById('inventory').appendChild(maDiv);
 
         // Tag 3 (col D)
         maDiv = document.createElement("div");
-        maDiv.id = 'div2_' + objet;
+        maDiv.id = 'tag3_' + IdObjet;
         maDiv.className = 'col-xs-2 tag3';
-        maDiv.innerHTML = '<input id="' + objet + 'Number" type="number" class="number" value="1">';
+        maDiv.innerHTML = '<input id="' + IdObjet + 'Number" type="number" class="number" value="1">';
         maDiv.onclick = function(){
-           if (document.getElementById(objet + 'Number').value <= 0) {
+           if (document.getElementById(IdObjet + 'Number').value <= 0) {
 
                // Supprimer Tag 2 et 3
                this.remove();
-               document.getElementById(objet).remove();
+               document.getElementById('tag2_' + IdObjet).remove();
 
                // Réactiver Tag 1 (vert)
-               document.getElementById('object_' + objet).className = 'col-xs-2 object';
+               document.getElementById(IdObjet).className = 'col-xs-2 object';
            };
         };
-        document.getElementById(objet).append(maDiv);
+        document.getElementById('tag2_' + IdObjet).append(maDiv);
     }
 }
 
@@ -49,10 +49,14 @@ $( document ).ready(function() {
             document.getElementById('objects').style.visibility="visible";
             document.getElementById('colonneD').style.visibility="visible";
             document.getElementById('recapitulatif').style.visibility="visible";
+            document.getElementById('listObject').style.visibility="visible";
+            document.getElementById('listCategories').style.visibility="visible";
         } else {
             document.getElementById('objects').style.visibility="hidden";
             document.getElementById('colonneD').style.visibility="hidden";
             document.getElementById('recapitulatif').style.visibility="hidden";
+            document.getElementById('listObject').style.visibility="hidden";
+            document.getElementById('listCategories').style.visibility="hidden";
         }
     });
 
