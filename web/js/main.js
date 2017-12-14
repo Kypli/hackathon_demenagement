@@ -96,6 +96,27 @@ $( document ).ready(function() {
                     array.splice(index);
                 }
             });
+
+            let url = `/api/furnitures`;
+            let data = {'categories': categoriesSelected.join()};
+
+            jQuery.getJSON(url, data)
+                .done(function(data){
+                    let objectsIds = [];
+
+                    data.forEach(function(value, index, array) {
+                        objectsIds.push(value.id.toString());
+                    });
+
+                    jQuery('#objects > div').each(function(index){
+                        if (jQuery.inArray(jQuery(this).attr('id').substring(7, jQuery(this).attr('id').length), objectsIds) == -1) {
+                            jQuery(this).hide();
+                        } else {
+                            jQuery(this).show();
+                        }
+                    })
+                });
+
             jQuery(this).children().remove('span');
         }
 
