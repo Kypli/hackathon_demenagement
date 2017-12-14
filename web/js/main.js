@@ -1,16 +1,16 @@
 // Déplacer les tag
-function copierColler(IdObjet) {
+function copierColler(IdObjet, name) {
 
     if (!document.getElementById('tag2_' + IdObjet)) {
 
         // Désactiver l'objet (gris)
         document.getElementById(IdObjet).className = 'col-xs-2 object bgGris';
 
-        // Tag 1 (col G)
+        // Tag 2 (col G)
         maDiv = document.createElement("div");
         maDiv.id = 'tag2_' + IdObjet;
         maDiv.className = 'col-xs-2 tag2';
-        maDiv.innerHTML = IdObjet;
+        maDiv.innerHTML = name;
         document.getElementById('inventory').appendChild(maDiv);
 
         // Tag 3 (col D)
