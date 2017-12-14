@@ -16,7 +16,7 @@ class EstateType extends AbstractType
         $builder->add('estate', ChoiceType::class, array(
             'label_attr' => array('class' => 'selector_label'),
             'attr' => array('class' => 'selector'),
-            'label' => 'Mon déménagement se fait via : ',
+            'label' => ' ',
             'choices' => array(
                 'Choisir une option' => '0',
                 'Appartement' => array(

@@ -14,18 +14,28 @@ body
     background-repeat: no-repeat;
     background-size: cover;
 }
+.accroche {
+    text-align: center;
+    padding-top: 30px;
+}
 
-button.btn.btn-primary {
+.navimg, .footerimg {
+    width: 100%;
+}
+
+button.btn {
     margin: 5px;
     background: #e54380;
     border-color: white;
     width: auto;
     height: auto;
+    color:white;
 }
 
 .selector {
-    border-radius: 5px;
-    background: white;
+    margin-bottom: 30px;
+    height: 40px;
+    margin-top: 10px;
 }
 
 .white{
@@ -43,17 +53,20 @@ button.btn.btn-primary {
 /* TAG */
 .object{
     padding: 5px;
-    border-radius: 6px;
-    background-color: green;
     text-align: center;
     cursor: pointer;
+    margin: 5px;
+    background: #4c448f;
+    border-color: white;
+    width: auto;
+    height: auto;
+    color:white;
 }
 
 .tag2{
     height: 70px;
     padding: 5px;
-    border-radius: 10px;
-    background-color: green;
+    background-color: #4c448f;
     text-align: center;
 }
 
@@ -63,11 +76,11 @@ button.btn.btn-primary {
 }
 
 .object:hover{
-    background-color: yellow;
+    background-color: #e54380;
 }
 
 .tag2:hover{
-    background-color: yellow;
+    background-color: #e54380;
 }
 
 .bgGris{
@@ -85,10 +98,14 @@ button.btn.btn-primary {
     flex-direction: column;
 }
 
+div#colonneG.col-xs-6.colonneGauche {
+    padding-left: 25px;
+}
+
 .selector {
-    margin-top: 20px;
     margin-bottom: 30px;
-    margin-left: 20px;
+    height: 40px;
+    margin-top: 10px;
 }
 
 #categories h3 { display: inline; }
@@ -111,9 +128,9 @@ button.btn.btn-primary {
 .inventory {
     height: 100%;
     min-height: 500px;
-    width: 600px;
+    width: auto;
     margin-top: 0;
-    margin-left: 40px;
+    margin-left: 20px;
     margin-bottom: 20px;
     border: 2px orange ridge;
 }
@@ -123,8 +140,9 @@ button.btn.btn-primary {
 }
 
 ul.nav.nav-tabs {
-    margin-top: 36px;
+    margin-top: 5px;
     border-bottom: none;
+    margin-left: 20px;
 }
 
 .buttonModal{
@@ -141,4 +159,18 @@ ul.nav.nav-tabs {
 
 .addRoomPlus{
     background-color: #BBB0BF;
+    margin-left: -40px;
+    margin-bottom: 1px;
+}
+
+div.row.columns {
+    background: white;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+.pull-right {
+    margin-top: 20px;
+    background-color: #4c448f;
 }
