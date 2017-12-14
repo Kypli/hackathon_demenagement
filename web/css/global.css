@@ -23,6 +23,19 @@ body
     width: 100%;
 }
 
+button.btn.btn-primary {
+    margin: 5px;
+    background: #e54380;
+    border-color: white;
+    width: auto;
+    height: auto;
+}
+
+.selector {
+    border-radius: 5px;
+    background: white;
+}
+
 .white{
     color: white;
 }
