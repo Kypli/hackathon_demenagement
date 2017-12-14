@@ -6,12 +6,26 @@
     <div class="row">
 
         {# COLONNE GAUCHE #}
-        <div class="col-xs-6">
-            {{ form_start(formSelect) }}{{ form_end(formSelect) }}
-            <div id="colonneG" class="row displayNone">
-                <div id="objects" class="objects">
-                    {% for tag in tags %}
-                        <div id="tag_{{ tag }}" class="col-xs-2 tag" onclick='copierColler("{{ tag }}")'>{{ tag }}</div>
+        <div id="colonneG" class="col-xs-6 ">
+            <div class="row">
+                <h2>Type</h2>
+                {{ form_start(formSelect) }}{{ form_end(formSelect) }}
+            </div>
+            <div class="row">
+                <h2>Catégories</h2>
+                <div id="categories">
+                    {% for category in categories %}
+                        <button type="button" class="btn btn-{{ category.color }}" data-id="{{ category.id }}">
+                            {{ category.name }}
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <h2>Objets</h2>
+                <div id="objects" class="row displayNone">
+                    {% for object in objects %}
+                        <div id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("{{ object.id }}")'>{{ object.name }}</div>
                     {% endfor %}
                 </div>
             </div>
@@ -72,10 +86,10 @@
                     {% for userTag in userTags %}
                         <div id="{{ userTag.id }}" class="col-xs-2 tag2">
                             {{ userTag.name }}
-                            <div id="div2_{{ userTag.id }}"
-                            <input id="' + objet + 'Number" type="number" class="number" value="1">
+                            <div id="div2_{{ userTag.id }}">
+                                <input id="' + objet + 'Number" type="number" class="number" value="1">
+                            </div>
                         </div>
-
                     {% endfor %}
                 </div>
             </div>

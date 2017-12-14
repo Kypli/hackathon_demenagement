@@ -4,7 +4,7 @@ function copierColler(objet) {
     if (!document.getElementById(objet)) {
 
         // Désactiver l'objet (gris)
-        document.getElementById('tag_' + objet).className = 'col-xs-2 tag bgGris';
+        document.getElementById('object_' + objet).className = 'col-xs-2 object bgGris';
 
         // Tag 1 (col G)
         maDiv = document.createElement("div");
@@ -26,7 +26,7 @@ function copierColler(objet) {
                document.getElementById(objet).remove();
 
                // Réactiver Tag 1 (vert)
-               document.getElementById('tag_' + objet).className = 'col-xs-2 tag';
+               document.getElementById('object_' + objet).className = 'col-xs-2 object';
            };
         };
         document.getElementById(objet).append(maDiv);
@@ -54,6 +54,48 @@ $( document ).ready(function() {
             document.getElementById('colonneD').style.visibility="hidden";
             document.getElementById('recapitulatif').style.visibility="hidden";
         }
+    });
 
-    })
+    let categoriesSelected = [];
+
+    // Click sur une catégorie pour filtrer les objets
+    jQuery('#categories button').click(function(){
+        let categChecked = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+        let checked = jQuery(this).children().length;
+        let id = jQuery(this).data('id');
+
+        if (0 == checked) {
+            categoriesSelected.push(id);
+            let url = `/api/furnitures`;
+            let data = {'categories': categoriesSelected.join()};
+
+            jQuery.getJSON(url, data)
+                .done(function(data){
+                    let objectsIds = [];
+
+                    data.forEach(function(value, index, array) {
+                        objectsIds.push(value.id.toString());
+                    });
+
+                    jQuery('#objects > div').each(function(index){
+                        if (jQuery.inArray(jQuery(this).attr('id').substring(7, jQuery(this).attr('id').length), objectsIds) == -1) {
+                            jQuery(this).hide();
+                        } else {
+                            jQuery(this).show();
+                        }
+                    })
+                });
+            jQuery(this).append(categChecked);
+        } else {
+            categoriesSelected.forEach(function(value, index, array) {
+                if (id == value) {
+                    array.splice(index);
+                }
+            });
+            jQuery(this).children().remove('span');
+        }
+
+        // *** LOG ***
+        // console.log(categoriesSelected);
+    });
 });

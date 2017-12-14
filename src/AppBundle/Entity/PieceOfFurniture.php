@@ -29,12 +29,12 @@ class PieceOfFurniture
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="room", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="PiecesOfFurniture")
      */
     private $rooms;
 
     /**
-     * @ORM\ManyToOne(targetEntity="typeFurniture", inversedBy="PiecesOfFurniture")
+     * @ORM\ManyToOne(targetEntity="TypeFurniture", inversedBy="PiecesOfFurniture")
      */
     private $typeFurniture;
     /**
@@ -98,11 +98,11 @@ class PieceOfFurniture
     /**
      * Set typeFurniture
      *
-     * @param \AppBundle\Entity\typeFurniture $typeFurniture
+     * @param \AppBundle\Entity\TypeFurniture $typeFurniture
      *
      * @return PieceOfFurniture
      */
-    public function setTypeFurniture(\AppBundle\Entity\typeFurniture $typeFurniture = null)
+    public function setTypeFurniture(\AppBundle\Entity\TypeFurniture $typeFurniture = null)
     {
         $this->typeFurniture = $typeFurniture;
 
@@ -112,7 +112,7 @@ class PieceOfFurniture
     /**
      * Get typeFurniture
      *
-     * @return \AppBundle\Entity\typeFurniture
+     * @return \AppBundle\Entity\TypeFurniture
      */
     public function getTypeFurniture()
     {
@@ -158,5 +158,19 @@ class PieceOfFurniture
     public function getRooms()
     {
         return $this->rooms;
+    }
+
+    /**
+     * Set rooms
+     *
+     * @param \AppBundle\Entity\Room $rooms
+     *
+     * @return PieceOfFurniture
+     */
+    public function setRooms(\AppBundle\Entity\Room $rooms = null)
+    {
+        $this->rooms = $rooms;
+
+        return $this;
     }
 }

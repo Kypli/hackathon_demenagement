@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * typeFurniture
  *
  * @ORM\Table(name="type_furniture")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\typeFurnitureRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TypeFurnitureRepository")
  */
-class typeFurniture
+class TypeFurniture
 {
     /**
      * @var int
@@ -32,6 +32,31 @@ class typeFurniture
      * @ORM\OneToMany(targetEntity="PieceOfFurniture", mappedBy="typeFurniture")
      */
     private $PiecesOfFurniture;
+
+    /**
+     * @var String
+     *
+     * @ORM\Column(name="color", type="string", length=50)
+     */
+    private $color;
+
+    /**
+     * @return String
+     */
+    public function getColor(): String
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param String $color
+     * @return TypeFurniture
+     */
+    public function setColor(String $color): TypeFurniture
+    {
+        $this->color = $color;
+        return $this;
+    }
 
     /**
      * Get id
