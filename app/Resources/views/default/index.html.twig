@@ -2,17 +2,31 @@
 
 {% block body %}
 
+    <div class="container accroche">
+        <div class="row ">
+            <h1>INVENTAIRE DE MON DÉMÉNAGEMENT</h1>
+        </div>
+        <div class="row ">
+            <p>Définissez la liste des objets que vous souhaitez déménager.</p>
+        </div>
+        <div class="row selector">
+            {{ form_start(formSelect) }}{{ form_end(formSelect) }}
+        </div>
+
+
+    </div>
+
     {# COLONNE G & D #}
-    <div class="row">
+    <div class="row columns">
 
         {# COLONNE GAUCHE #}
-        <div id="colonneG" class="col-xs-6 ">
+        <div id="colonneG" class="col-xs-6 colonneGauche">
 
             {# FORM SELECT #}
-            <div class="row">
-                <h2>Type</h2>
-                {{ form_start(formSelect) }}{{ form_end(formSelect) }}
-            </div>
+            {#<div class="row">#}
+                {#<h2>Type</h2>#}
+                {#{{ form_start(formSelect) }}{{ form_end(formSelect) }}#}
+            {#</div>#}
 
             {# CATEGORIES #}
             <div id="listCategories" class="row displayNone">
@@ -120,7 +134,7 @@
                     <h4 class="modal-title">Récapitulatif de mon inventaire</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Mon inventaire est vide pour le moment</p>
+                    <p id="textRecap">Mon inventaire est vide pour le moment</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

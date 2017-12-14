@@ -6,7 +6,7 @@ function copierColler(IdObjet) {
         // Désactiver l'objet (gris)
         document.getElementById(IdObjet).className = 'col-xs-2 object bgGris';
 
-        // Tag 1 (col G)
+        // Tag 2 (col G)
         maDiv = document.createElement("div");
         maDiv.id = 'tag2_' + IdObjet;
         maDiv.className = 'col-xs-2 tag2';
@@ -30,6 +30,11 @@ function copierColler(IdObjet) {
            };
         };
         document.getElementById('tag2_' + IdObjet).append(maDiv);
+
+        //Ajouter dans le récapitulatif
+
+        textRecap = document.getElementById('textRecap').innerHTML;
+        alert(textRecap);
     }
 }
 
