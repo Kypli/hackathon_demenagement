@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Room;
 use AppBundle\Entity\PieceOfFurniture;
 use AppBundle\Entity\TypeFurniture;
+use AppBundle\Form\AddRoomType;
 use AppBundle\Form\EstateType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,46 +16,40 @@ class HomeController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @param Request $request
+     * @param SessionInterface $session
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request, SessionInterface $session)
     {
         // Doctrine
         $em = $this->getDoctrine()->getManager();
 
-        // Initialise GET
-        if (!empty($request->query->get('room'))) {
-            $room = $request->query->get('room');
-        }
-
-        // Display formSelect
+        // Display formSelect / Objects / Categories / Room
         $formSelect = $this->createForm(EstateType::class);
-
-        // Display Objects / Categories / Room
         $objects = $em->getRepository(PieceOfFurniture::class)->findAll();
         $categories = $em->getRepository(TypeFurniture::class)->findAll();
-        $rooms = $em->getRepository('AppBundle:Room')->findAll();
+        $listRooms = $em->getRepository(Room::class)->findAll();
 
-        // Sessions initialize
-        if (empty($session->get('onglets'))) {
-            $session->set('onglets', '');
+        $formCheckBox = $this->createForm(AddRoomType::class);
+        $formCheckBox->handleRequest($request);
+
+        // List "tabRooms" (SESSION['tabRooms'])
+        if (empty($session->get('tabRooms'))) {
+            $this->get('session')->set('tabRooms', null);
+            $session->set('tabRooms', array());
         }
 
-        // Création SESSION['room']
-        if (!empty($room)) {
-
-            // Forcer $add en tableau
-            if (!empty($session->get('onglets'))) {
-                $add = $session->get('onglets');
-            } else {
-                $add = [];
-            }
+        // Add Room
+        if (!empty($request->query->get('room'))) {
+            $room[] = $request->query->get('room');
+            $tabRooms = $session->get('tabRooms');
 
             // S'il n'existe pas déja
-            if (!in_array($room, $add)) {
+            if (!in_array($room, $tabRooms)) {
 
                 // Rajouter la salle
-                $add[] = $room;
-                $session->set('onglets', $add);
+                $session->set('tabRooms', array_merge($room, $tabRooms));
             }
         }
 
@@ -66,20 +62,20 @@ class HomeController extends Controller
         $listTag = [];
         $listTag[] = $tag;
         $session->set('userTag', $listTag);
-
-
         $session->set('userTag', array());
 
         // Sessions Reset
         if (!empty($_POST['reset'])) {
-            $session->set('onglets', array());
+            $this->get('session')->set('tabRooms', null);
+            $session->set('tabRooms', array());
         }
 
         return $this->render('default/index.html.twig',
             array(
                 'formSelect' => $formSelect->createView(),
-                'rooms' => $rooms,
-                'onglets' => $session->get('onglets'),
+                'formCheckbox' => $formCheckBox->createView(),
+                'rooms' => $listRooms,
+                'onglets' => $session->get('tabRooms'),
                 'userTags' => $session->get('userTag'),
                 'objects' => $objects,
                 'categories' => $categories,

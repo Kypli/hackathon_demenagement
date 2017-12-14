@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body onload="myFunction()">
         <div class="container-fluid">
             <img class ="navimg" src="{{ asset("image/navbar-emoovz.png") }}">
             {% block body %}{% endblock %}
