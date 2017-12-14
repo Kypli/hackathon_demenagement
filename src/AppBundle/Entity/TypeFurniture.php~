@@ -33,7 +33,6 @@ class TypeFurniture
      */
     private $PiecesOfFurniture;
 
-
     /**
      * Get id
      *

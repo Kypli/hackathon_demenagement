@@ -14,6 +14,29 @@ body
     background-repeat: no-repeat;
     background-size: cover;
 }
+.accroche {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.navimg, .footerimg {
+    width: 100%;
+}
+
+button.btn {
+    margin: 5px;
+    background: #e54380;
+    border-color: white;
+    width: auto;
+    height: auto;
+    color:white;
+}
+
+.selector {
+    margin-bottom: 30px;
+    height: 40px;
+    margin-top: 10px;
+}
 
 .white{
     color: white;
@@ -28,44 +51,41 @@ body
 }
 
 /* TAG */
-.tag{
+.object{
     padding: 5px;
-    border-radius: 6px;
-    background-color: green;
     text-align: center;
     cursor: pointer;
+    margin: 5px;
+    background: #4c448f;
+    border-color: white;
+    width: auto;
+    height: auto;
+    color:white;
 }
 
 .tag2{
     height: 70px;
     padding: 5px;
-    border-radius: 10px;
-    background-color: green;
+    background-color: #4c448f;
     text-align: center;
 }
 
 .tag3{
-    margin-top:20px;
-    background-color: green;
+    margin-top:10px;
     text-align: center;
 }
 
-.tag:hover{
-    background-color: yellow;
+.object:hover{
+    background-color: #e54380;
 }
 
 .tag2:hover{
-    background-color: yellow;
-}
-
-.tag3:hover{
-    background-color: yellow;
+    background-color: #e54380;
 }
 
 .bgGris{
     background-color: grey;
 }
-
 
 .number{
     width: 50px;
@@ -73,11 +93,23 @@ body
 
 
 /* COL 1 */
-.selector {
-    margin-top: 20px;
-    margin-bottom: 30px;
-    margin-left: 20px;
+.colonneG {
+    display: flex;
+    flex-direction: column;
 }
+
+div#colonneG.col-xs-6.colonneGauche {
+    padding-left: 25px;
+}
+
+.selector {
+    margin-bottom: 30px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+#categories h3 { display: inline; }
+#categories a { text-decoration: none; }
 
 .object {
     height: 100%;
@@ -88,7 +120,6 @@ body
     border: 2px orange ridge;
 }
 
-
 .navbar-default {
     background-color: #e54380;
 }
@@ -97,9 +128,9 @@ body
 .inventory {
     height: 100%;
     min-height: 500px;
-    width: 600px;
+    width: auto;
     margin-top: 0;
-    margin-left: 40px;
+    margin-left: 20px;
     margin-bottom: 20px;
     border: 2px orange ridge;
 }
@@ -108,11 +139,38 @@ body
     margin-left: -40px;
 }
 
-
 ul.nav.nav-tabs {
-    margin-top: 36px;
+    margin-top: 5px;
     border-bottom: none;
+    margin-left: 20px;
 }
+
 .buttonModal{
     margin-right: 20px;
+}
+
+.addRoom{
+    cursor:pointer;
+}
+
+.addRoom:hover{
+    text-decoration: underline;
+}
+
+.addRoomPlus{
+    background-color: #BBB0BF;
+    margin-left: -40px;
+    margin-bottom: 1px;
+}
+
+div.row.columns {
+    background: white;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+.pull-right {
+    margin-top: 20px;
+    background-color: #4c448f;
 }

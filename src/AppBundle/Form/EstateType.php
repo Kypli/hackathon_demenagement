@@ -4,7 +4,6 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EstateType extends AbstractType
@@ -15,45 +14,26 @@ class EstateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('estate', ChoiceType::class, array(
+            'label_attr' => array('class' => 'selector_label'),
             'attr' => array('class' => 'selector'),
-            'label' => 'Mon déménagement se fait via : ',
+            'label' => ' ',
             'choices' => array(
                 'Choisir une option' => '0',
                 'Appartement' => array(
                     'Studio' => '1',
-                    '2 pièces' => '1',
-                    '3 pièces' => '1',
-                    '4 pièces' => '1',
+                    '2 pièces' => '2',
+                    '3 pièces' => '3',
+                    '4 pièces' => '4',
                 ),
                 'Maison' => array(
-                    '3 pièces' => '2',
-                    '4 pièces' => '2',
-                    '5 pièces' => '2',
+                    '3 pièces' => '5',
+                    '4 pièces' => '6',
+                    '5 pièces' => '7',
                 ),
                 'Inventaire libre' => array(
-                    'A faire soi-même' => '3',
+                    'A faire soi-même' => '8',
                 ),
             ),
         ));
     }
-//
-//    /**
-//     * {@inheritdoc}
-//     */
-//    public function configureOptions(OptionsResolver $resolver)
-//    {
-//        $resolver->setDefaults(
-//            array(
-//                'data_class' => 'AppBundle\Entity\Specimen'
-//            )
-//        );
-//    }
-//
-//    /**
-//     * {@inheritdoc}
-//     */
-//    public function getBlockPrefix()
-//    {
-//        return 'appbundle_specimen';
-//    }
 }

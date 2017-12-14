@@ -1,18 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="row">
+
+    <div class="container accroche">
+        <div class="row ">
+            <h1>INVENTAIRE DE MON DÉMÉNAGEMENT</h1>
+        </div>
+        <div class="row ">
+            <p>Définissez la liste des objets que vous souhaitez déménager.</p>
+        </div>
+        <div class="row selector">
+            {{ form_start(formSelect) }}{{ form_end(formSelect) }}
+        </div>
+
+
+    </div>
+
+    {# COLONNE G & D #}
+    <div class="row columns">
 
         {# COLONNE GAUCHE #}
-        <div class="col-xs-6">
-            {{ form_start(form) }}{{ form_end(form) }}
-            <div id="colonneG" class="row displayNone">
-                <div id="object" class="object">
-                    {% for tag in tags %}
-                        <div id="tag_{{ tag }}" class="col-xs-2 tag" onclick='copierColler("{{ tag }}")'>{{ tag }}</div>
+        <div id="colonneG" class="col-xs-6 colonneGauche">
+
+            {# FORM SELECT #}
+            {#<div class="row">#}
+                {#<h2>Type</h2>#}
+                {#{{ form_start(formSelect) }}{{ form_end(formSelect) }}#}
+            {#</div>#}
+
+            {# CATEGORIES #}
+            <div id="listCategories" class="row displayNone">
+                <h2>Catégories</h2>
+                <div id="categories">
+                    {% for category in categories %}
+                        <button type="button" class="btn btn-{{ category.color }}" data-id="{{ category.id }}">
+                            {{ category.name }}
+                        </button>
                     {% endfor %}
                 </div>
             </div>
+
+            {# OBJECTS #}
+            <div id="listObject" class="row displayNone">
+                <h2>Objets</h2>
+                <div id="objects" class="row">
+                    {% for object in objects %}
+                        <div id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+
         </div>
 
         {# COLONNE DROITE #}
@@ -20,14 +57,20 @@
 
             {# ONGLET #}
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Cuisine</a></li>
-                <li><a data-toggle="modal" href="#plus" data-target="#plus">+</a></li>
 
-                <!-- Modal -->
+                {# ROOMS #}
+                {% for onglet in onglets %}
+                    <li class="active"><a data-toggle="tab" href="#home">{{ onglet|capitalize }}</a></li>
+                {% endfor %}
+
+                {# + #}
+                <li><a data-toggle="modal" class="addRoomPlus" href="#plus" data-target="#plus">+</a></li>
+
+                {# ONGLET MODAL #}
                 <div id="plus" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
-                        <!-- Modal content-->
+                        {# ONGLET MODAL CONTENT #}
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -35,145 +78,18 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row available-rooms-container">
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="497" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Bureau</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="498" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Cave</a>
+                                    {% for room in rooms %}
+                                        <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="Room{{ room.id }}" data-room-can-delete="true">
+                                            <div class="row">
+                                                <div class="col-xs-4"></div>
+                                                <div class="col-xs-8">
+                                                    <a href="{{ path('homepage', {
+                                                        'id':room.id,
+                                                    }) }}">{{ room.name|capitalize }}</a>
+                                                </div>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="491" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Chambre 1</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="492" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Chambre 2</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="493" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Chambre 3</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="514" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Chambre 4</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="487" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Cuisine</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="488" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Entrée</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="505" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Garage</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="508" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Grenier</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="496" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Jardin-Balcon</a>
-                                            </div>
-                                        </div>
-                                        <div class="available-items-container hidden">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="490" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Salle à manger</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="495" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Salle de bain</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="489" data-room-can-delete="true">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                            </div>
-                                            <div class="col-xs-8">
-                                                <a class="room-name" href="#">Salon</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
 
@@ -188,18 +104,26 @@
             {# CONTENT #}
             <div class="tab-content right">
                 <div id="inventory" class="inventory">
-                    <div id="home" class="tab-content fade"></div>
+                    {% for userTag in userTags %}
+                        <div id="{{ userTag.id }}" class="col-xs-2 tag2">
+                            {{ userTag.name }}
+                            <div id="div2_{{ userTag.id }}">
+                                <input id="' + objet + 'Number" type="number" class="number" value="1">
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
+    {# RECAP #}
+    <div id="recapitulatif" class="row displayNone">
 
-        {# BOUTON RECAP #}
+        {# BOUTON #}
         <button type="button" class="btn btn-info btn-lg pull-right buttonModal" data-toggle="modal" data-target="#myModal">Récapitulatif</button>
 
-        {# MODAL RECAP #}
+        {# MODAL #}
         <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -210,7 +134,7 @@
                     <h4 class="modal-title">Récapitulatif de mon inventaire</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Mon inventaire est vide pour le moment</p>
+                    <p id="textRecap">Mon inventaire est vide pour le moment</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -220,6 +144,12 @@
     </div>
     </div>
 
+    {# RESET #}
+    <div class="row">
+        <form id="reset" method="post" action="">
+            <input type="submit" class="" name="reset" value="Reset"/>
+        </form>
+    </div>
 
 {% endblock %}
 
