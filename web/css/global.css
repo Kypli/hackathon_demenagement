@@ -122,3 +122,7 @@ ul.nav.nav-tabs {
 .addRoom:hover{
     text-decoration: underline;
 }
+
+.addRoomPlus{
+    background-color: #BBB0BF;
+}

@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+    {# COLONNE G & D #}
     <div class="row">
 
         {# COLONNE GAUCHE #}
         <div class="col-xs-6">
-            {{ form_start(form) }}{{ form_end(form) }}
+            {{ form_start(formSelect) }}{{ form_end(formSelect) }}
             <div id="colonneG" class="row displayNone">
                 <div id="objects" class="objects">
                     {% for tag in tags %}
@@ -19,18 +21,21 @@
         <div id="colonneD" class="col-xs-6 displayNone">
 
             {# ONGLET #}
-
             <ul class="nav nav-tabs">
+
+                {# ROOMS #}
                 {% for onglet in onglets %}
                     <li class="active"><a data-toggle="tab" href="#home">{{ onglet|capitalize }}</a></li>
                 {% endfor %}
-                <li><a data-toggle="modal" href="#plus" data-target="#plus">+</a></li>
 
-                <!-- Modal -->
+                {# + #}
+                <li><a data-toggle="modal" class="addRoomPlus" href="#plus" data-target="#plus">+</a></li>
+
+                {# ONGLET MODAL #}
                 <div id="plus" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
-                        <!-- Modal content-->
+                        {# ONGLET MODAL CONTENT #}
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -43,10 +48,9 @@
                                             <div class="row">
                                                 <div class="col-xs-4"></div>
                                                 <div class="col-xs-8">
-                                                    <form id="form{{ room.id }}"method="post" action="">
-                                                        <input type="text" class="displayNone" name="room" value="{{ room.name }}"/>
-                                                        <span class="addRoom" onclick='addRoom("form{{ room.id }}")'>{{ room.name|capitalize }}</span>
-                                                    </form>
+                                                    <a href="{{ path('homepage', {
+                                                        'room':room.name,
+                                                    }) }}">{{ room.name|capitalize }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,17 +69,26 @@
             {# CONTENT #}
             <div class="tab-content right">
                 <div id="inventory" class="inventory">
-                    <div id="home" class="tab-content fade"></div>
+                    {% for userTag in userTags %}
+                        <div id="{{ userTag.id }}" class="col-xs-2 tag2">
+                            {{ userTag.name }}
+                            <div id="div2_{{ userTag.id }}"
+                            <input id="' + objet + 'Number" type="number" class="number" value="1">
+                        </div>
+
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        {# BOUTON RECAP #}
+    {# RECAP #}
+    <div id="recapitulatif" class="row displayNone">
+
+        {# BOUTON #}
         <button type="button" class="btn btn-info btn-lg pull-right buttonModal" data-toggle="modal" data-target="#myModal">Récapitulatif</button>
 
-        {# MODAL RECAP #}
+        {# MODAL #}
         <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 

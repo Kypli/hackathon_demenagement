@@ -15,7 +15,7 @@ function copierColler(objet) {
 
         // Tag 3 (col D)
         maDiv = document.createElement("div");
-        maDiv.id = objet + '2';
+        maDiv.id = 'div2_' + objet;
         maDiv.className = 'col-xs-2 tag3';
         maDiv.innerHTML = '<input id="' + objet + 'Number" type="number" class="number" value="1">';
         maDiv.onclick = function(){
@@ -34,8 +34,8 @@ function copierColler(objet) {
 }
 
 // Rajouter une salle
-function addRoom(objet) {
-    document.forms[objet].submit();
+function addRoom(formId) {
+    document.getElementById(formId).submit();
 }
 
 // Afficher le site si Inventaire libre
@@ -48,9 +48,11 @@ $( document ).ready(function() {
         if (valeurselectionnee == '8'){
             document.getElementById('objects').style.visibility="visible";
             document.getElementById('colonneD').style.visibility="visible";
+            document.getElementById('recapitulatif').style.visibility="visible";
         } else {
             document.getElementById('objects').style.visibility="hidden";
             document.getElementById('colonneD').style.visibility="hidden";
+            document.getElementById('recapitulatif').style.visibility="hidden";
         }
 
     })
