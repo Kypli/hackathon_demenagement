@@ -40,8 +40,14 @@ button.btn {
     color: black;
 }
 
+.gras {
+    font-weight: bold;
+}
+
 .RoomTitleSelect {
-    margin-left: 230px;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 22px;
     color:#0B009A;
 }

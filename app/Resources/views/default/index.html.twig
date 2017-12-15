@@ -13,10 +13,9 @@
             {{ form_start(formSelect) }}{{ form_end(formSelect) }}
         </div>
 
-
     </div>
     {# RECAP #}
-    <div id="recapitulatif" class="row displayNone">
+    <div id="recapitulatif" class="row">
 
         {# BOUTON #}
         <button type="button" class="btn pull-right buttonModal" data-toggle="modal" data-target="#myModal">Récapitulatif</button>
@@ -49,7 +48,7 @@
         <div id="colonneG" class="col-xs-6 colonneGauche">
 
             {# CATEGORIES #}
-            <div id="listCategories" class="row displayNone">
+            <div id="listCategories" class="row">
                 <h2>Catégories</h2>
                 <div id="categories">
                     {% for category in categories %}
@@ -61,7 +60,7 @@
             </div>
 
             {# OBJECTS #}
-            <div id="listObject" class="row displayNone">
+            <div id="listObject" class="row">
                 <h2>Objets</h2>
                 <div id="objects" class="row objLabel">
                     {% for object in objects %}
@@ -73,14 +72,15 @@
         </div>
 
         {# COLONNE DROITE #}
-        <div id="colonneD" class="col-xs-6 displayNone">
+        <div id="colonneD" class="col-xs-6">
 
             {# ONGLET #}
             <ul class="nav nav-tabs">
 
                 {# ROOMS #}
                 {% for onglet in onglets %}
-                    <li class="active"><a data-toggle="tab" href="#home">{{ onglet|capitalize }}</a></li>
+
+                    <li class="active {% if loop.first %}gras{% endif %}"><a data-toggle="tab" href="#home">{{ onglet|capitalize }}</a></li>
                 {% endfor %}
 
                 {# + #}
@@ -141,6 +141,7 @@
             </div>
         </div>
     </div>
+
     {# RESET #}
     <div class="row">
         <form id="reset" method="post" action="">

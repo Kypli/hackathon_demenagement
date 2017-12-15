@@ -21,6 +21,7 @@ class AddRoomType extends AbstractType
                 'class' => Room::class,
                 'choice_label' => 'name',
                 'choice_value' => 'id',
+                'label' => 'Ajouter une pièce',
                 'label_attr' => array('class' => 'RoomTitleSelect'),
                 'expanded' => true,
                 'multiple' => true,
