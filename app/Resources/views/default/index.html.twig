@@ -98,23 +98,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row available-rooms-container">
-                                        {{ form_start(formCheckbox) }}
-                                        {{ form_widget(formCheckbox) }}
-                                        <input type="submit"/>
-                                        {{ form_end(formCheckbox) }}
-
-                                    {#{% for room in rooms %}#}
-                                        {#<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="Room{{ room.id }}" data-room-can-delete="true">#}
-                                            {#<div class="row">#}
-                                                {#<div class="col-xs-4"></div>#}
-                                                {#<div class="col-xs-8">#}
-                                                    {#<a href="{{ path('homepage', {#}
-                                                        {#'room':room.name,#}
-                                                    {#}) }}">{{ room.name|capitalize }}</a>#}
-                                                {#</div>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#{% endfor %}#}
+                                    {{ form_start(formCheckbox) }}
+                                    {{ form_widget(formCheckbox) }}
+                                    <input type="submit"/>
+                                    {{ form_end(formCheckbox) }}
                                 </div>
                             </div>
 
@@ -131,10 +118,13 @@
                 <div id="inventory" class="inventory">
                     {% for userTag in userTags %}
                         <div id="{{ userTag.id }}" class="col-xs-2 tag2">
+
                             {{ userTag.name }}
+                            <input id="' + objet + 'Number" type="number" class="number" value="1">
                             <div id="div2_{{ userTag.id }}">
-                                <input id="' + objet + 'Number" type="number" class="number" value="1">
+
                             </div>
+
                         </div>
                     {% endfor %}
                 </div>
