@@ -58,6 +58,7 @@ class RoomFixtures extends Fixture
             "Literie",
             "Autres",];
 
+        $types = [];
         foreach ($typeFurnitures as $key => $name) {
             $typeFurniture = new TypeFurniture();
             $typeFurniture->setName($name);
