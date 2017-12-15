@@ -15,6 +15,32 @@
 
 
     </div>
+    {# RECAP #}
+    <div id="recapitulatif" class="row displayNone">
+
+        {# BOUTON #}
+        <button type="button" class="btn pull-right buttonModal" data-toggle="modal" data-target="#myModal">Récapitulatif</button>
+
+        {# MODAL #}
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Récapitulatif de mon inventaire</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="textRecap">Mon inventaire est vide pour le moment</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {# COLONNE G & D #}
     <div class="row columns">
@@ -24,8 +50,8 @@
 
             {# FORM SELECT #}
             {#<div class="row">#}
-                {#<h2>Type</h2>#}
-                {#{{ form_start(formSelect) }}{{ form_end(formSelect) }}#}
+            {#<h2>Type</h2>#}
+            {#{{ form_start(formSelect) }}{{ form_end(formSelect) }}#}
             {#</div>#}
 
             {# CATEGORIES #}
@@ -45,7 +71,7 @@
                 <h2>Objets</h2>
                 <div id="objects" class="row">
                     {% for object in objects %}
-                        <div id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</div>
+                        <button id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</button>
                     {% endfor %}
                 </div>
             </div>
@@ -79,7 +105,8 @@
                             <div class="modal-body">
                                 <div class="row available-rooms-container">
                                     {% for room in rooms %}
-                                        <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="Room{{ room.id }}" data-room-can-delete="true">
+                                        <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="Room{{ room.id }}"
+                                             data-room-can-delete="true">
                                             <div class="row">
                                                 <div class="col-xs-4"></div>
                                                 <div class="col-xs-8">
@@ -117,32 +144,7 @@
         </div>
     </div>
 
-    {# RECAP #}
-    <div id="recapitulatif" class="row displayNone">
 
-        {# BOUTON #}
-        <button type="button" class="btn btn-info btn-lg pull-right buttonModal" data-toggle="modal" data-target="#myModal">Récapitulatif</button>
-
-        {# MODAL #}
-        <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Récapitulatif de mon inventaire</h4>
-                </div>
-                <div class="modal-body">
-                    <p id="textRecap">Mon inventaire est vide pour le moment</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
 
     {# RESET #}
     <div class="row">

@@ -26,10 +26,9 @@ body
 button.btn {
     margin: 5px;
     background: #e54380;
-    border-color: white;
     width: auto;
     height: auto;
-    color:white;
+    color: white;
 }
 
 .selector {
@@ -173,4 +172,14 @@ div.row.columns {
 .pull-right {
     margin-top: 20px;
     background-color: #4c448f;
+}
+
+button.buttonModal {
+    margin-right: 15px;
+    color: white;
+}
+
+button.buttonModal:hover {
+    margin-right: 15px;
+    color: white;
 }
