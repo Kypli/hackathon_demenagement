@@ -89,6 +89,19 @@ button.btn {
     color:#0B009A;
 }
 
+
+/* TAG */
+.object.btn{
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px;
+    background: #4c448f;
+    width: auto;
+    height: auto;
+    color: white;
+}
+
 #addRoom label  {
     margin-left: 5px;
     margin-right: 30px;
@@ -103,7 +116,6 @@ button.btn {
 
 #addRoom_32 {
     margin-left: 67px !important;
->>>>>>> 69057bc369033064a9f19a5db717cbee9afaa937
 }
 
 /* TAG */
@@ -123,6 +135,10 @@ button.btn {
     padding: 5px;
     background-color: #9A6ED2;
     text-align: center;
+    margin: 5px;
+    width: auto;
+    border-color: black;
+
 }
 
 .tag2 span {
@@ -130,8 +146,8 @@ button.btn {
 }
 
 .tag3{
-    margin-top:10px;
-    margin-left:20px;
+    margin-top: 10px;
+    margin-left: 20px;
     text-align: center;
     color:blue;
 }
@@ -255,4 +271,3 @@ button.buttonModal:hover {
     text-align: justify;
     margin-bottom: 20px;
 }
-
