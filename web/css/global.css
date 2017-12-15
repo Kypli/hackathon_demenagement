@@ -119,7 +119,7 @@ button.btn {
 /*}*/
 
 .tag2{
-    height: 70px;
+    /*height: 70px;*/
     padding: 5px;
     background-color: #9A6ED2;
     text-align: center;
@@ -161,6 +161,7 @@ button.btn {
     margin-left: 0;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 
@@ -210,6 +211,7 @@ ul.nav.nav-tabs {
 
 .buttonModal{
     margin-right: 20px;
+
 }
 
 .addRoom{
@@ -235,6 +237,7 @@ div.row.columns {
 .pull-right {
     margin-top: 20px;
     background-color: #4c448f;
+    margin-bottom: 20px;
 }
 
 button.buttonModal {
