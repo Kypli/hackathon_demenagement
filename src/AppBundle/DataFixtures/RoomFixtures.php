@@ -72,7 +72,7 @@ class RoomFixtures extends Fixture
             ["Grand carton", "Petit carton"],
             ["Canapé 2 places", "Canapé 3 places", "Canapé d'angle"],
             ["Chaise", "Pouf", "Tabouret", "Fauteuil"],
-            ["Guéridon / Table d'appoint", "Table 2-4 personnes", "Table 6-8 personnes", "Table monastère", "Table Pliante", "Table Ronde"],
+            ["Guéridon", "Table 2-4 personnes", "Table 6-8 personnes", "Table monastère", "Table Pliante", "Table Ronde"],
             ["Halogène", "Lampe abat-jour", "Lustre"],
             ["Aquarium", "Miroir", "Tableau / Cadre", "Tapis"],
             ["Armoire 1 porte", "Armoire 2 Portes", "Armoire 3 Portes", "Armoire dressing", "Bar", "Bibliothèque", "Bibliothèque Lourde", "Buffet 2 corps", "Buffet bas"],
