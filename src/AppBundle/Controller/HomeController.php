@@ -34,6 +34,10 @@ class HomeController extends Controller
         $formCheckBox = $this->createForm(AddRoomType::class);
         $formCheckBox->handleRequest($request);
 
+
+//        $this->get('session')->set('tabRooms', null);
+//        var_dump($request);
+
         // List "tabRooms" (SESSION['tabRooms'])
         if (empty($session->get('tabRooms'))) {
             $this->get('session')->set('tabRooms', null);

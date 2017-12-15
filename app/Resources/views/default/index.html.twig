@@ -22,12 +22,6 @@
         {# COLONNE GAUCHE #}
         <div id="colonneG" class="col-xs-6 colonneGauche">
 
-            {# FORM SELECT #}
-            {#<div class="row">#}
-                {#<h2>Type</h2>#}
-                {#{{ form_start(formSelect) }}{{ form_end(formSelect) }}#}
-            {#</div>#}
-
             {# CATEGORIES #}
             <div id="listCategories" class="row displayNone">
                 <h2>Catégories</h2>
@@ -45,7 +39,7 @@
                 <h2>Objets</h2>
                 <div id="objects" class="row">
                     {% for object in objects %}
-                        <button id="object_{{ object.id }}" class="col-xs-2 object btn btn-primary" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</button>
+                        <button id="object_{{ object.id }}" class="col-xs-2 object btn btn-primary" onclick='copierColler("object_{{ object.id }}", "{{ object.name|capitalize }}")'>{{ object.name }}</button>
                     {% endfor %}
                 </div>
             </div>
