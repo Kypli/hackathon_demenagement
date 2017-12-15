@@ -21,8 +21,8 @@ class AddRoomType extends AbstractType
                 'class' => Room::class,
                 'choice_label' => 'name',
                 'choice_value' => 'name',
-//                'expanded' => true,
-//                'multiple' => true,
+                'expanded' => true,
+                'multiple' => true,
                 'required' => false,
             ]);
     }
