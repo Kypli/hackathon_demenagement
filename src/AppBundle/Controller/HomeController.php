@@ -35,8 +35,9 @@ class HomeController extends Controller
         $formCheckBox->handleRequest($request);
 
 
-//        $this->get('session')->set('tabRooms', null);
-//        var_dump($request);
+        $this->get('session')->set('tabRooms', null);
+
+
 
         // List "tabRooms" (SESSION['tabRooms'])
         if (empty($session->get('tabRooms'))) {
@@ -46,16 +47,24 @@ class HomeController extends Controller
 
         // Add Room
         if (!empty($request->query->get('addRoom'))) {
-            $room[] = $request->query->get('addRoom');
-            $tabRooms = $session->get('tabRooms');
 
-            // S'il n'existe pas déja
-            if (!in_array($room, $tabRooms)) {
+            // Salle par salle
+            foreach ($request->query->get('addRoom') as $value) {
 
-                // Rajouter la salle
-                $session->set('tabRooms', array_merge($room, $tabRooms));
+                $room[] = $value;
+                $tabRooms = $session->get('tabRooms');
+
+                // S'il n'existe pas déja
+                if (!in_array($tabRooms, $room)) {
+
+                    // Rajouter la salle
+                    $session->set('tabRooms', array_merge($room, $tabRooms));
+                    unset ($room);
+                }
+
             }
         }
+
 
         // Création SESSION['tags']
         $tag = [
