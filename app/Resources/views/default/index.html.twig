@@ -59,7 +59,7 @@
                 <h2>Catégories</h2>
                 <div id="categories">
                     {% for category in categories %}
-                        <button type="button" class="btn btn-{{ category.color }}" data-id="{{ category.id }}">
+                        <button type="button" class="btn" data-id="{{ category.id }}">
                             {{ category.name }}
                         </button>
                     {% endfor %}
@@ -71,7 +71,7 @@
                 <h2>Objets</h2>
                 <div id="objects" class="row">
                     {% for object in objects %}
-                        <button id="object_{{ object.id }}" class="col-xs-2 object" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</button>
+                        <button id="object_{{ object.id }}" class="col-xs-2 object btn btn-primary" onclick='copierColler("object_{{ object.id }}")'>{{ object.name }}</button>
                     {% endfor %}
                 </div>
             </div>
@@ -104,19 +104,23 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row available-rooms-container">
-                                    {% for room in rooms %}
-                                        <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="Room{{ room.id }}"
-                                             data-room-can-delete="true">
-                                            <div class="row">
-                                                <div class="col-xs-4"></div>
-                                                <div class="col-xs-8">
-                                                    <a href="{{ path('homepage', {
-                                                        'id':room.id,
-                                                    }) }}">{{ room.name|capitalize }}</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
+                                        {{ form_start(formCheckbox) }}
+                                        {{ form_widget(formCheckbox) }}
+                                        <input type="submit"/>
+                                        {{ form_end(formCheckbox) }}
+
+                                    {#{% for room in rooms %}#}
+                                        {#<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 available-room" data-room-type-id="Room{{ room.id }}" data-room-can-delete="true">#}
+                                            {#<div class="row">#}
+                                                {#<div class="col-xs-4"></div>#}
+                                                {#<div class="col-xs-8">#}
+                                                    {#<a href="{{ path('homepage', {#}
+                                                        {#'room':room.name,#}
+                                                    {#}) }}">{{ room.name|capitalize }}</a>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#{% endfor %}#}
                                 </div>
                             </div>
 
@@ -143,9 +147,6 @@
             </div>
         </div>
     </div>
-
-
-
     {# RESET #}
     <div class="row">
         <form id="reset" method="post" action="">
