@@ -59,7 +59,7 @@ button.btn {
     background: #4c448f;
     width: auto;
     height: auto;
-    color:white;
+    color: white;
 }
 
 
@@ -68,7 +68,9 @@ button.btn {
     padding: 5px;
     background-color: #9A6ED2;
     text-align: center;
-    border-radius: 6px;
+    margin: 5px;
+    width: auto;
+    border-color: black;
 }
 
 .tag2 span {
@@ -76,8 +78,8 @@ button.btn {
 }
 
 .tag3{
-    margin-top:10px;
-    margin-left:20px;
+    margin-top: 10px;
+    margin-left: 20px;
     text-align: center;
     color:blue;
 }
