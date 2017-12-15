@@ -39,6 +39,7 @@ class RoomFixtures extends Fixture
             $room = new Room();
             $room->setName($name);
             $manager->persist($room);
+            $tabRooms[] = $room;
         }
 
         // ajout de types
@@ -89,6 +90,8 @@ class RoomFixtures extends Fixture
                 $pieceOfFurniture = new PieceOfFurniture();
                 $pieceOfFurniture->setName($furniture);
                 $pieceOfFurniture->setTypeFurniture($types[$key]);
+                $random = rand(0,10);
+                $pieceOfFurniture->setRoom($tabRooms[$random]);
                 $manager->persist($pieceOfFurniture);
             }
         }
