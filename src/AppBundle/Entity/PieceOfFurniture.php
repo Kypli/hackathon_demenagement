@@ -29,7 +29,7 @@ class PieceOfFurniture
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Room", inversedBy="PiecesOfFurniture")
+     * @ORM\ManyToOne(targetEntity="Room")
      */
     private $room;
 
@@ -118,13 +118,7 @@ class PieceOfFurniture
     {
         return $this->typeFurniture;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->room = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+
 
     /**
      * Add room
