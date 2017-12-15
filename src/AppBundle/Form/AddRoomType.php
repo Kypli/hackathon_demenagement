@@ -20,7 +20,7 @@ class AddRoomType extends AbstractType
             ->add('addRoom', EntityType::class, [
                 'class' => Room::class,
                 'choice_label' => 'name',
-                'choice_value' => 'name',
+                'choice_value' => 'id',
                 'expanded' => true,
                 'multiple' => true,
                 'required' => false,

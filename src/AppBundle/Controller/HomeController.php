@@ -51,6 +51,11 @@ class HomeController extends Controller
             // Salle par salle
             foreach ($request->query->get('addRoom') as $value) {
 
+                $value = $em->getRepository('AppBundle:Room')
+                    ->findBy(['id' => $value], array(), null, 0);
+
+                $value = $value[0]->getName();
+
                 $room[] = $value;
                 $tabRooms = $session->get('tabRooms');
 
