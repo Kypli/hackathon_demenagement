@@ -18,7 +18,6 @@ body
     width: 100%;
 }
 
-
 button.btn:hover, .object.btn:hover {
     color: white;
     text-decoration: none;
@@ -121,7 +120,6 @@ button.btn {
 }
 
 .tag2{
-    /*height: 70px;*/
     padding: 5px;
     background-color: #9A6ED2;
     text-align: center;
