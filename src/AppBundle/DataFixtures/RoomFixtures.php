@@ -75,7 +75,7 @@ class RoomFixtures extends Fixture
             ["Guéridon", "Table 2-4 personnes", "Table 6-8 personnes", "Table monastère", "Table Pliante", "Table Ronde"],
             ["Halogène", "Lampe abat-jour", "Lustre"],
             ["Aquarium", "Miroir", "Tableau / Cadre", "Tapis"],
-            ["Armoire 1 porte", "Armoire 2 Portes", "Armoire 3 Portes", "Armoire dressing", "Bar", "Bibliothèque", "Bibliothèque Lourde", "Buffet 2 corps", "Buffet bas"],
+            ["Armoire 1 porte", "Armoire 2 Portes", "Armoire 3 Portes", "Armoire dressing", "Bar", "Bibliothèque", "Bibliothèque Lourde", "Buffet bas", "Buffet 2 corps"],
             ["Chaine Hi-Fi / Home cinema", "Enceinte HI/FI", "Ordinateur", "Petite imprimante", "Photocopieur", "TV"],
             ["Aspirateur", "Cave à vin", "Climatiseur", "Congélateur", "Cuisinière", "Four", "Four micro-onde", "Frigo Américain", "Hotte"],
             ["Barbecue", "Brouette", "Caisse à outils", "Chaise longue", "Chaise longue", "Chaise PVC/extérieur"],
