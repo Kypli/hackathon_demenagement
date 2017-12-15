@@ -30,7 +30,7 @@ function copierColler(IdObjet, name) {
            };
 
             textRecap = '';
-            for (var iter = 1; iter <= 5; iter++) {
+            for (var iter = 1; iter <= 72; iter++) {
 
                 if (document.getElementById('tag2_object_' + iter)) {
                     text = $('#tag2_object_' + iter +' >span').text();
@@ -46,7 +46,7 @@ function copierColler(IdObjet, name) {
 
         // Add Recap
         textRecap = '';
-        for (var iter = 1; iter <= 5; iter++) {
+        for (var iter = 1; iter <= 72; iter++) {
 
             if (document.getElementById('tag2_object_' + iter)) {
                 text = $('#tag2_object_' + iter +' >span').text();
