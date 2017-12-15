@@ -69,7 +69,7 @@ class RoomFixtures extends Fixture
         // ajout de pieces
         $pieceOfFurnitureCategories = [
             ["Grand carton (55 x 35 x 30 cm)", "Petit carton (35 x 27,5 x 30 cm)"],
-            ["Canapé 2 places", "Canapé 3 places", "Canapé d'angle"],
+            ["Canapé 2 places", "Canape 3 places", "Canapé d'angle"],
             ["Chaise", "Pouf", "Tabouret", "Fauteuil"],
             ["Guéridon / Table d'appoint", "Table 2-4 personnes", "Table 6-8 personnes", "Table monastère en chêne", "Table Pliante", "Table Ronde"],
             ["Halogène", "Lampe à abat-jour", "Lustre"],

@@ -23,6 +23,7 @@ body
     width: 100%;
 }
 
+
 button.btn:hover, .object.btn:hover {
     color: white;
     text-decoration: none;
@@ -34,6 +35,38 @@ button.btn, .object.btn {
     width: auto;
     height: auto;
     color: white;
+    border-radius: 0px;
+}
+button.btn {
+    margin: 5px;
+    background: #e54380;
+    width: auto;
+    height: auto;
+    color: white;
+    border-radius: 0px;
+}
+.bgGris {
+    width: auto;
+    color: white;
+    height: auto;
+    background: grey;
+    display: block;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 5px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    border-left-width: 1px;
+    border-left-style: solid;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-right-width: 1px;
+    border-right-style: solid;
+    margin-right: 5px;
 }
 
 .selector {
@@ -52,6 +85,7 @@ button.btn, .object.btn {
 
 .displayNone{
     /*visibility:hidden*/
+    margin-right: 0px;
 }
 
 /* TAG */
@@ -72,7 +106,6 @@ button.btn, .object.btn {
     padding: 5px;
     background-color: #9A6ED2;
     text-align: center;
-    border-radius: 6px;
 }
 
 .tag2 span {
@@ -91,10 +124,6 @@ button.btn, .object.btn {
     background-color: #e54380;
 }
 
-.bgGris{
-    background-color: grey;
-}
-
 .number{
     width: 50px;
 }
@@ -106,10 +135,25 @@ button.btn, .object.btn {
     flex-direction: column;
 }
 
+.col-xs-2.object.bgGris, .col-xs-2.tag2 {
+    width: auto;
+}
+
+.col-xs-2.tag2 {
+    margin-right: 20px;
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
 div#colonneG.col-xs-6.colonneGauche {
     padding-left: 25px;
 }
 
+div#objects.row.objLabel {
+    margin-right: 20px;
+}
 .selector {
     margin-bottom: 30px;
     height: 40px;
@@ -131,8 +175,10 @@ div#colonneG.col-xs-6.colonneGauche {
     width: auto;
     margin-top: 0;
     margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 20px;
-    border: 2px orange ridge;
+    border-top: 1px ridge;
+    border-top-color: #4c448f;
 }
 
 .right {
@@ -187,5 +233,7 @@ button.buttonModal:hover {
 
 .row.objLabel {
     margin-left: 0;
+    text-align: justify;
+    margin-bottom: 20px;
 }
 
