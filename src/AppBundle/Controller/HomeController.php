@@ -34,18 +34,13 @@ class HomeController extends Controller
         $formCheckBox = $this->createForm(AddRoomType::class);
         $formCheckBox->handleRequest($request);
 
-
-        $this->get('session')->set('tabRooms', null);
-
-
-
         // List "tabRooms" (SESSION['tabRooms'])
         if (empty($session->get('tabRooms'))) {
             $this->get('session')->set('tabRooms', null);
             $session->set('tabRooms', array());
         }
 
-        // Add Room
+        // Edit Room
         if (!empty($request->query->get('addRoom'))) {
 
             // Salle par salle
@@ -54,22 +49,18 @@ class HomeController extends Controller
                 $value = $em->getRepository('AppBundle:Room')
                     ->findBy(['id' => $value], array(), null, 0);
 
-                $value = $value[0]->getName();
-
-                $room[] = $value;
+                $room[] = $value[0]->getName();
                 $tabRooms = $session->get('tabRooms');
 
                 // S'il n'existe pas déja
-                if (!in_array($tabRooms, $room)) {
+                if (!in_array($room[0], $tabRooms)) {
 
-                    // Rajouter la salle
+                    // Add Room
                     $session->set('tabRooms', array_merge($room, $tabRooms));
                     unset ($room);
                 }
-
             }
         }
-
 
         // Création SESSION['tags']
         $tag = [
