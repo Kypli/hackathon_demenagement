@@ -51,7 +51,7 @@ button.btn {
 }
 
 /* TAG */
-.object{
+.object.btn{
     padding: 5px;
     text-align: center;
     cursor: pointer;
@@ -61,6 +61,7 @@ button.btn {
     height: auto;
     color:white;
 }
+
 
 .tag2{
     height: 70px;
@@ -140,7 +141,7 @@ div#colonneG.col-xs-6.colonneGauche {
 ul.nav.nav-tabs {
     margin-top: 5px;
     border-bottom: none;
-    margin-left: 20px;
+    margin-left: -20px;
 }
 
 .buttonModal{
@@ -157,7 +158,7 @@ ul.nav.nav-tabs {
 
 .addRoomPlus{
     background-color: #BBB0BF;
-    margin-left: -40px;
+    margin-left: 0px;
     margin-bottom: 1px;
 }
 
@@ -182,3 +183,8 @@ button.buttonModal:hover {
     margin-right: 15px;
     color: white;
 }
+
+.row.objLabel {
+    margin-left: 0;
+}
+
