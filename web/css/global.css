@@ -36,6 +36,7 @@ button.btn, .object.btn {
     padding-left: 12px;
     padding-right: 12px;
 }
+
 button.btn {
     margin: 5px;
     background: #e54380;
@@ -44,6 +45,7 @@ button.btn {
     color: white;
     border-radius: 0px;
 }
+
 .bgGris {
     width: auto;
     color: white;
@@ -82,10 +84,13 @@ button.btn {
     color: black;
 }
 
+.gras {
+    font-weight: bold;
+}
 
 .displayNone{
-    /*visibility:hidden*/
-    margin-right: 0px;}
+    margin-right: 0px;
+}
 
 .RoomTitleSelect {
     margin-left: 230px;
@@ -107,20 +112,7 @@ button.btn {
 
 #addRoom_32 {
     margin-left: 67px !important;
->>>>>>> 69057bc369033064a9f19a5db717cbee9afaa937
 }
-
-/* TAG */
-/*.object.btn{*/
-    /*padding: 5px;*/
-    /*text-align: center;*/
-    /*cursor: pointer;*/
-    /*margin: 5px;*/
-    /*background: #4c448f;*/
-    /*width: auto;*/
-    /*height: auto;*/
-    /*color:white;*/
-/*}*/
 
 .tag2{
     padding: 5px;
@@ -138,7 +130,6 @@ button.btn {
     text-align: center;
     color:blue;
 }
-
 
 .tag2:hover{
     background-color: #e54380;
@@ -260,4 +251,3 @@ button.buttonModal:hover {
     text-align: justify;
     margin-bottom: 20px;
 }
-

@@ -57,8 +57,10 @@ class HomeController extends Controller
 
                     // Add Room
                     $session->set('tabRooms', array_merge($room, $tabRooms));
-                    unset ($room);
                 }
+
+                // Reset Room
+                unset ($room);
             }
         }
 
