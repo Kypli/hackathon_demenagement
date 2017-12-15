@@ -19,16 +19,18 @@ function copierColler(IdObjet, name) {
         maDiv.className = 'col-xs-2 tag3';
         maDiv.innerHTML = '<input id="' + IdObjet + 'Number" type="number" class="number" value="1">';
         maDiv.onclick = function(){
+
            if (document.getElementById(IdObjet + 'Number').value <= 0) {
 
                // Supprimer Tag 2 et 3
                this.remove();
                document.getElementById('tag2_' + IdObjet).remove();
 
-               // Réactiver Tag 1 (vert)
-               document.getElementById(IdObjet).className = 'col-xs-2 object';
+               // Réactiver Tag 1
+               document.getElementById(IdObjet).className = 'col-xs-2 object btn';
            };
 
+           // Alimenter le récap
             textRecap = '';
             for (var iter = 1; iter <= 72; iter++) {
 
